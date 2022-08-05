@@ -27,10 +27,11 @@ public class User {
 	@NotNull(message = "Le nom ne peut pas être nul")
 	@Column(name = "name")
 	private String name;
+
 	
     @NotBlank
     @NotNull(message = "Le prénom ne peut pas être nul")
-    @Column(name = "first name")
+    @Column(name = "first_name")
     private String firstName;
     
 	@NotBlank

@@ -10,7 +10,7 @@
 
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 
 export class User {
   constructor(
@@ -43,6 +43,12 @@ export class HttpClientService {
 
   getVideos(): Observable<Video[]> {
     return this.httpClient.get<Video[]>(this.videosUrl);
+  }
+
+  getVideoById(id: string): Observable<Video> {
+    return this.httpClient.get<Video>(this.videosUrl + '/id?id=' + `${id}`).pipe(
+    map(video => video) // JSON
+    );
   }
   
   public createVideo(video: any) {

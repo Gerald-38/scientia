@@ -24,7 +24,7 @@ import { VideosComponent } from './videos/videos.component';
 const routes: Routes = [
   { path: '', component: UserComponent,canActivate:[AuthGaurdService] },
   { path: 'videos', component: VideosComponent,canActivate:[AuthGaurdService] },
-  { path: 'video-details', component: VideoDetailsComponent,canActivate:[AuthGaurdService] },
+  {path: 'video/:id', component: VideoDetailsComponent, canActivate:[AuthGaurdService]},
   { path: 'add-video', component: AddVideoComponent, canActivate:[AuthGaurdService] },
   { path: 'adduser', component: AddUserComponent,canActivate:[AuthGaurdService]},
   { path: 'login', component: LoginComponent },

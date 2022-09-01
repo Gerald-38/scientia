@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClientService, Video } from '../service/httpclient.service';
+import { VideoService, Video } from '../service/video.service';
 
 @Component({
   selector: 'app-add-video',
@@ -10,12 +10,12 @@ import { HttpClientService, Video } from '../service/httpclient.service';
 export class AddVideoComponent implements OnInit {
   video: Video = new Video("");
 
-  constructor(private httpClientService: HttpClientService,
+  constructor(private videoService: VideoService,
     private router: Router) { }
 
     createVideo(): void {
       console.debug(this.video);
-      this.httpClientService.createVideo(this.video).subscribe(data => {
+      this.videoService.createVideo(this.video).subscribe(data => {
         alert("Video AJoutée");
         this.router.navigate(['/videos'])
       });

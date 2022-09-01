@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClientService, Video } from '../service/httpclient.service';
+import { VideoService, Video } from '../service/video.service';
 
 @Component({
   selector: 'app-videos',
@@ -10,10 +10,10 @@ export class VideosComponent implements OnInit {
   videos: Video[] | any;
   displayedColumns: string[] = ["title"];
 
-  constructor(private httpClientService: HttpClientService) { }
+  constructor(private videoService: VideoService) { }
 
   ngOnInit(): void {
-  this.httpClientService.getVideos().subscribe(data => {
+  this.videoService.getVideos().subscribe(data => {
     this.videos = data;      
   });
   }

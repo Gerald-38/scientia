@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClientService, Video } from '../service/httpclient.service';
+import { VideoService, Video } from '../service/video.service';
 
 @Component({
   selector: 'app-video-details',
@@ -11,14 +11,14 @@ export class VideoDetailsComponent implements OnInit {
 
   video!: Video;
 
-  constructor(private route: ActivatedRoute, private httpClientService: HttpClientService) { }
+  constructor(private route: ActivatedRoute, private videoService: VideoService) { }
 
   ngOnInit(): void {
 
     const id = this.route.snapshot.paramMap.get('id');
 
     if (id) {  
-      this.httpClientService.getVideoById(id).subscribe(
+      this.videoService.getVideoById(id).subscribe(
         video => this.video = video        
       )
     }

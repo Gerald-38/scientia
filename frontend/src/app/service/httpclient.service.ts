@@ -41,22 +41,22 @@ export class HttpClientService {
     return this.httpClient.get<User[]>("http://localhost:8080/users");
   }
 
-  getVideos(): Observable<Video[]> {
-    return this.httpClient.get<Video[]>(this.videosUrl);
-  }
+  // getVideos(): Observable<Video[]> {
+  //   return this.httpClient.get<Video[]>(this.videosUrl);
+  // }
 
-  getVideoById(id: string): Observable<Video> {
-    return this.httpClient.get<Video>(this.videosUrl + '/id?id=' + `${id}`).pipe(
-    map(video => video) // JSON
-    );
-  }
+  // getVideoById(id: string): Observable<Video> {
+  //   return this.httpClient.get<Video>(this.videosUrl + '/id?id=' + `${id}`).pipe(
+  //   map(video => video) // JSON
+  //   );
+  // }
   
-  public createVideo(video: any) {
-    return this.httpClient.post<Video>(
-      "http://localhost:8080/videos/post",
-      video
-    );
-  }
+  // public createVideo(video: any) {
+  //   return this.httpClient.post<Video>(
+  //     "http://localhost:8080/videos/post",
+  //     video
+  //   );
+  // }
 
   public deleteUser(user: any) {
     return this.httpClient.delete<User>(

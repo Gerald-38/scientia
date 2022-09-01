@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span><a mat-button style="font-size: larger;">SCIENTIA</a></span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <span class="example-spacer"></span>
+        <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()">Mon profil</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Déconnexion</a>
+    </mat-toolbar-row>
+</mat-toolbar>

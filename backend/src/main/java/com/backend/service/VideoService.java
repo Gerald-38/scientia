@@ -6,26 +6,26 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.backend.model.VideoDao;
-import com.backend.repository.VideoDaoRepository;
+import com.backend.model.Video;
+import com.backend.repository.VideoRepository;
 
 
 @Service
 public class VideoService {
 	
 	@Autowired
-	private VideoDaoRepository videoDaoRepository;
+	private VideoRepository videoRepository;
 	
-    public List<VideoDao> getVideoDaos() {
-        return videoDaoRepository.findAll();
+    public List<Video> getVideoDaos() {
+        return videoRepository.findAll();
     }
     
-    public Optional<VideoDao> getById(Long id) {
-    	return videoDaoRepository.findById(id);    	
+    public Optional<Video> getById(Long id) {
+    	return videoRepository.findById(id);    	
     } 
     
-    public Boolean addVideo(VideoDao video) {    
-    	videoDaoRepository.save(video);
+    public Boolean addVideo(Video video) {    
+    	videoRepository.save(video);
     	return true; 
     }
     

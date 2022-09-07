@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.model.VideoDao;
-import com.backend.repository.VideoDaoRepository;
+import com.backend.model.Video;
+import com.backend.repository.VideoRepository;
 import com.backend.service.VideoService;
 
 
@@ -28,27 +28,27 @@ import com.backend.service.VideoService;
 public class VideoController {
 	
 	@Autowired
-    private VideoDaoRepository videoDaoRepository;
+    private VideoRepository videoRepository;
     
     @Autowired
     private VideoService videoService;
     
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public List<VideoDao> getVideoDaos(Model model) {
-        List<VideoDao> videoDaos = videoService.getVideoDaos();
-        model.addAttribute("videoDaos", videoDaos);
-        return videoDaos;
+    public List<Video> getVideoDaos(Model model) {
+        List<Video> videos = videoService.getVideoDaos();
+        model.addAttribute("videoDaos", videos);
+        return videos;
     }
     
 //    @RequestMapping(value = "get/id", method = RequestMethod.GET)
     @GetMapping("get/id")
-    public ResponseEntity<Optional<VideoDao>> getVideoById(@RequestParam Long id) {
+    public ResponseEntity<Optional<Video>> getVideoById(@RequestParam Long id) {
         return ResponseEntity.ok(videoService.getById(id));
     }
     
     @PostMapping("/post")
 //    @RequestMapping(value = "/post", method = RequestMethod.POST)
-    public void createMovie(@RequestBody VideoDao video)  {
+    public void createMovie(@RequestBody Video video)  {
     	videoService.addVideo(video);        
     }
 

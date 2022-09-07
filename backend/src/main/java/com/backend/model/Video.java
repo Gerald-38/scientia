@@ -10,7 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "t_video")
 
-public class VideoDao {
+public class Video {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,12 +20,12 @@ public class VideoDao {
     private String title;
 
     
-	public VideoDao() {
+	public Video() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public VideoDao(long id, String title) {
+	public Video(long id, String title) {
 		super();
 		this.id = id;
 		this.title = title;

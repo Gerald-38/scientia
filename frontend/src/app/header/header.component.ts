@@ -7,9 +7,12 @@ import { AuthenticationService } from '../service/authentication-service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  userRole: any;
 
   constructor(public loginService:AuthenticationService){ }
   ngOnInit() {
+    this.userRole = sessionStorage.getItem("role");
+    console.log(this.userRole);
   }
 
 }

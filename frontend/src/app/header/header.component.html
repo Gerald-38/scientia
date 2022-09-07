@@ -5,7 +5,7 @@
         <span class="align-center"></span>
         <span class="example-spacer"></span>
         <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
-        <a mat-button *ngIf="loginService.isUserLoggedIn()">Mon profil</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/user-profile" class="nav-link">Mon profil</a>
         <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a>
         <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a>
         <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a>

@@ -25,7 +25,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   styleUrls: ["./add-user.component.scss"]
 })
 export class AddUserComponent implements OnInit {
-  user: User = new User("", "", "", "");
+  user: User = new User("", "", "user");
   // public showSpinner: boolean = true;
 
   constructor(private httpClientService: HttpClientService,

@@ -14,18 +14,17 @@ import { map, Observable } from "rxjs";
 
 export class User {
   constructor(
-    public userId: string,
-    public name: string,
-    public designation: string,
-    public salary: string
+    public username: string,
+    public password: string,
+    public role: string = "user",
   ) {}
 }
 
-export class Video {
-  constructor(
-    public title: string,
-  ) {}
-}
+// export class Video {
+//   constructor(
+//     public title: string,
+//   ) {}
+// }
 
 @Injectable({
   providedIn: "root"
@@ -37,8 +36,8 @@ export class HttpClientService {
     this.videosUrl = 'http://localhost:8080/videos/get';
   }
 
-  getUsers() {
-    return this.httpClient.get<User[]>("http://localhost:8080/users");
+  getUsers():  Observable<User[]> {
+    return this.httpClient.get<User[]>("http://localhost:8080/users/get");
   }
 
   // getVideos(): Observable<Video[]> {
@@ -66,8 +65,15 @@ export class HttpClientService {
 
   public createUser(user: any) {
     return this.httpClient.post<User>(
-      "http://localhost:8080/users/post",
+      "http://localhost:8080/register",
       user
     );
   }
+
+  // public getUserName() {
+  //   console.log(sessionStorage.getItem("username"));    
+  // }
+
+
+
 }

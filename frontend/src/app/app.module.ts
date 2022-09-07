@@ -25,6 +25,8 @@ import { SubscribersComponent } from './subscribers/subscribers.component';
 import { VideosComponent } from './videos/videos.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
 import { AddVideoComponent } from './add-video/add-video.component';
+import { UsersComponent } from './users/users.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 @NgModule({
@@ -41,6 +43,8 @@ import { AddVideoComponent } from './add-video/add-video.component';
     VideosComponent,
     VideoDetailsComponent,
     AddVideoComponent,
+    UsersComponent,
+    UserProfileComponent
 
   ],
   imports: [

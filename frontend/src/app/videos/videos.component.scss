@@ -1,15 +1,22 @@
 
-table {
-    margin-left: 10%;
+.container
+{
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
 }
 
-.mat-elevation-z8 td {
-    margin-bottom: 200px;
-    margin-top: 200px;
-    &:hover {
-        background-color: #a1b3cf;
-        transform: scale(1.2);
-        transition: 500ms;
-        cursor: pointer;
-    }    
+.box {
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  transition: 800ms;
+  &:hover {
+            background-color: #a1b3cf;
+            transform: scale(1.07);            
+            cursor: pointer;
+  }
+  border-radius: 10px;
 }
+
+

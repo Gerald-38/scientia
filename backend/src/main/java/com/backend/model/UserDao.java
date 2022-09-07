@@ -9,11 +9,17 @@ public class UserDao {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    
     @Column
     private String username;
+    
     @Column
     @JsonIgnore
     private String password;
+    
+    @Column(columnDefinition = "varchar(255) default 'user'")
+//    @Column
+    private String role;
 
     public String getUsername() {
         return username;
@@ -38,6 +44,16 @@ public class UserDao {
     public void setPassword(String password) {
         this.password = password;
     }
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+    
+    
 
 }
 

@@ -27,7 +27,7 @@ import { MatTableModule } from '@angular/material/table'
 
 export class UserComponent implements OnInit {
   users: User[] | any;
-  displayedColumns: string[] = ["name", "designation", "delete"];
+  displayedColumns: string[] = ["name", "role", "delete"];
 
   constructor(private httpClientService: HttpClientService) {}
 

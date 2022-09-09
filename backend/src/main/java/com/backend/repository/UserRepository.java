@@ -1,10 +1,15 @@
 package com.backend.repository;
-import org.springframework.data.repository.CrudRepository;
 
-import com.backend.model.UserDao;
-import com.backend.model.UserDto;
-public interface UserRepository extends CrudRepository<UserDao, Integer> {
-    UserDao findByUsername(String username);
+import java.util.List;
+import java.util.Optional;
 
-	UserDto save(UserDto newUser);
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.backend.model.User;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+	User findByUsername(String username);
+
 }

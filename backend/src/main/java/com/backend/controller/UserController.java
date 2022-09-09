@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.model.UserDao;
-import com.backend.repository.UserDaoRepository;
+import com.backend.model.User;
+import com.backend.repository.UserRepository;
 import com.backend.service.JwtUserDetailsService;
 
 
@@ -22,20 +22,20 @@ public class UserController {
 	
 	
     @Autowired
-    private UserDaoRepository userDaoRepository;
+    private UserRepository userRepository;
     
     @Autowired
     private JwtUserDetailsService jwtUserDetailService;    
 	
-    @RequestMapping(value = "/greeting", method = RequestMethod.GET)
-    public String getEmployees() {
-        return "Welcome!";
-    }
-    
+//    @RequestMapping(value = "/greeting", method = RequestMethod.GET)
+//    public String getEmployees() {
+//        return "Welcome!";
+//    }
+//    
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public List<UserDao> getUserDaos(Model model) {
-        List<UserDao> userDaos = jwtUserDetailService.getUserDaos();
-        model.addAttribute("userDaos", userDaos);
-        return userDaos;
+    public List<User> getUserDaos(Model model) {
+        List<User> users = jwtUserDetailService.getUserDaos();
+        model.addAttribute("userDaos", users);
+        return users;
     }
 }

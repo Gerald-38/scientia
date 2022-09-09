@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { UserComponent } from './user/user.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
@@ -20,8 +19,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { SubscriberComponent } from './subscriber/subscriber.component';
-import { SubscribersComponent } from './subscribers/subscribers.component';
 import { VideosComponent } from './videos/videos.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
 import { AddVideoComponent } from './add-video/add-video.component';
@@ -33,13 +30,10 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   declarations: [
     AppComponent,
     AddUserComponent,
-    UserComponent,
     FooterComponent,
     HeaderComponent,
     LoginComponent,
     LogoutComponent,
-    SubscriberComponent,
-    SubscribersComponent,
     VideosComponent,
     VideoDetailsComponent,
     AddVideoComponent,

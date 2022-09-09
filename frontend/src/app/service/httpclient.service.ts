@@ -30,10 +30,10 @@ export class User {
   providedIn: "root"
 })
 export class HttpClientService {
-  private videosUrl: string;
+  // private videosUrl: string;
 
   constructor(private httpClient: HttpClient) {
-    this.videosUrl = 'http://localhost:8080/videos/get';
+    // this.videosUrl = 'http://localhost:8080/videos/get';
   }
 
   getUsers():  Observable<User[]> {

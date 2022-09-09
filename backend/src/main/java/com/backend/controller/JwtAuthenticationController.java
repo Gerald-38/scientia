@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import com.backend.config.JwtTokenUtil;
 import com.backend.model.JwtRequest;
 import com.backend.model.JwtResponse;
-import com.backend.model.UserDto;
+import com.backend.model.User;
+//import com.backend.model.UserDto;
 import com.backend.service.JwtUserDetailsService;
 
 @RestController
@@ -41,7 +42,7 @@ public class JwtAuthenticationController {
 	}
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ResponseEntity<?> saveUser(@RequestBody UserDto user) throws Exception {
+	public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
 

@@ -14,7 +14,7 @@ public class User {
     private String username;
     
     @Column
-    @JsonIgnore
+//    @JsonIgnore
     private String password;
     
     @Column(columnDefinition = "varchar(255) default 'user'")

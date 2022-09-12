@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'videos', component: VideosComponent,canActivate:[AuthGaurdService] },
   {path: 'video/:id', component: VideoDetailsComponent, canActivate:[AuthGaurdService]},
   { path: 'add-video', component: AddVideoComponent, canActivate:[AuthGaurdService] },
-  { path: 'adduser', component: AddUserComponent,canActivate:[AuthGaurdService]},
+  { path: 'adduser', component: AddUserComponent},
   { path: 'user-profile', component: UserProfileComponent,canActivate:[AuthGaurdService]},
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },

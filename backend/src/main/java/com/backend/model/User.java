@@ -52,6 +52,11 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+//	public User orElseThrow() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
     
     
 

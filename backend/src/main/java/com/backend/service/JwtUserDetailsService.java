@@ -12,6 +12,7 @@ import com.backend.model.User;
 import com.backend.repository.UserRepository;
 //import com.backend.repository.UserRepository;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,4 +48,8 @@ public class JwtUserDetailsService implements UserDetailsService {
 		newUser.setRole(user.getRole());	
 		return userDao.save(newUser);
 	}
+	
+    public User getByUsername(String username) {
+    	return userDao.findByUsername(username);    	
+    }
 }

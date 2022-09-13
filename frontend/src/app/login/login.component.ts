@@ -17,6 +17,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication-service';
+import { HttpClientService, User } from '../service/httpclient.service';
 
 
 @Component({
@@ -26,6 +27,8 @@ import { AuthenticationService } from '../service/authentication-service';
 })
 export class LoginComponent implements OnInit {
 
+  user!: User;
+
   username = ''
   password = ''
   invalidLogin = false
@@ -34,7 +37,7 @@ export class LoginComponent implements OnInit {
   @Input() error: string | null | undefined;
 
   constructor(private router: Router,
-    private loginservice: AuthenticationService) { }
+    private loginservice: AuthenticationService, private httpClientService: HttpClientService) { }
 
   ngOnInit() {
   }
@@ -43,7 +46,7 @@ export class LoginComponent implements OnInit {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
       data => {
         this.router.navigate(['videos'])
-        this.invalidLogin = false
+        this.invalidLogin = false        
       },
       error => {
         this.invalidLogin = true
@@ -51,6 +54,16 @@ export class LoginComponent implements OnInit {
       }
     )
     );
+    console.log(this.username)
+    console.log("USER --------->" + (this.httpClientService.getUser(this.username))); 
+    if(this.username) {
+      this.httpClientService.getUser(this.username).subscribe(
+        (user: User) => this.user = user
+      );
+      console.log("USER --->" + this.user)
+    }
+     
+
 
   }
 

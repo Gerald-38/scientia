@@ -1,26 +1,21 @@
-// import { Injectable } from '@angular/core';
-
-// @Injectable({
-//   providedIn: 'root'
-// })
-// export class AuthenticationServiceService {
-
-//   constructor() { }
-// }
-
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
+import { HttpClientService, User } from "./httpclient.service";
 
-export class User {
-  constructor(public status: string) {}
-}
+// export class User {
+//   constructor(public status: string) {}
+// }
+
+// user: User;
 
 @Injectable({
   providedIn: "root"
 })
-export class AuthenticationService {
-  constructor(private httpClient: HttpClient) {}
+export class AuthenticationService  {
+  
+
+  constructor(private httpClient: HttpClient, private httpClientService: HttpClientService) {}
 // Provide username and password for authentication, and once authentication is successful, 
 //store JWT token in session
   authenticate(username: string, password: any) {
@@ -40,7 +35,7 @@ export class AuthenticationService {
     let user = sessionStorage.getItem("username");
     // console.log(!(user === null));
     return !(user === null);
-  }
+  }  
 
   logOut() {
     sessionStorage.removeItem("username");

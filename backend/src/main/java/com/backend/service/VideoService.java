@@ -27,9 +27,5 @@ public class VideoService {
     public Boolean addVideo(Video video) {    
     	videoRepository.save(video);
     	return true; 
-    }
-    
-    
-
-
+    }  
 }

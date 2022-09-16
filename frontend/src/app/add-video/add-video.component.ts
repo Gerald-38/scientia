@@ -8,7 +8,7 @@ import { VideoService, Video } from '../service/video.service';
   styleUrls: ['./add-video.component.scss']
 })
 export class AddVideoComponent implements OnInit {
-  video: Video = new Video("");
+  video: Video = new Video("", "", "", "");
 
   constructor(private videoService: VideoService,
     private router: Router) { }

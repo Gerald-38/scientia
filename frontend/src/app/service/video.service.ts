@@ -4,9 +4,13 @@ import { map, Observable } from "rxjs";
 
 export class Video {
   constructor(
+    public id: string,
     public title: string,
+    public descprion: string,
+    public image: string,
   ) {}
 }
+
 
 @Injectable({
   providedIn: "root"
@@ -33,6 +37,10 @@ export class VideoService {
       "http://localhost:8080/videos/post",
       video
     );
+  }
+
+  deleteVideo(video:Video): Observable<void> {
+    return this.httpClient.delete<void>("http://localhost:8080/videos/delete/" + video.id)
   }
   
 }

@@ -27,9 +27,9 @@ export class HttpClientService {
   }
 
 
-  public getUser(username: string): Observable<User> {
-    return this.httpClient.get<User>("http://localhost:8080/users/user?username=" + username);           
-  }
+  // public getUser(username: string): Observable<User> {
+  //   return this.httpClient.get<User>("http://localhost:8080/users/user?username=" + username);           
+  // }
 
   public deleteUser(user: any) {
     return this.httpClient.delete<User>(

@@ -18,7 +18,21 @@ public class Video {
 	
     @Column
     private String title;
+    
+    @Column
+    private String description;
+    
+    @Column
+    private String image;
 
+//  TODO
+//  @Column
+//  private String catégorie
+    
+//  TODO
+//  @Column
+//  private String tag  
+    
     
 	public Video() {
 		super();
@@ -29,6 +43,8 @@ public class Video {
 		super();
 		this.id = id;
 		this.title = title;
+		this.description = description;
+		this.image = image;
 	}
 
 	public long getId() {
@@ -46,6 +62,23 @@ public class Video {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
 	
 	
     

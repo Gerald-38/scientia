@@ -27,5 +27,23 @@ public class VideoService {
     public Boolean addVideo(Video video) {    
     	videoRepository.save(video);
     	return true; 
-    }  
+    }
+    
+    public Boolean deleteById(Long id) {
+        boolean isVideoInDB;
+        
+        try {
+          isVideoInDB = videoRepository.existsById(id);
+
+          if (!isVideoInDB) {
+            return false;
+          }
+          videoRepository.deleteById(id);
+          return true;
+          
+        } catch (RuntimeException e) {
+        	System.out.println(e.getLocalizedMessage());
+          return false;
+        }
+    }
 }

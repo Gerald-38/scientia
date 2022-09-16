@@ -54,14 +54,14 @@ export class LoginComponent implements OnInit {
       }
     )
     );
-    console.log(this.username)
-    console.log("USER --------->" + (this.httpClientService.getUser(this.username))); 
-    if(this.username) {
-      this.httpClientService.getUser(this.username).subscribe(
-        (user: User) => this.user = user
-      );
-      console.log("USER --->" + this.user)
-    }
+    // console.log(this.username)
+    // console.log("USER --------->" + (this.httpClientService.getUser(this.username))); 
+    // if(this.username) {
+    //   this.httpClientService.getUser(this.username).subscribe(
+    //     (user: User) => this.user = user
+    //   );
+    //   console.log("USER --->" + this.user)
+    // }
      
 
 

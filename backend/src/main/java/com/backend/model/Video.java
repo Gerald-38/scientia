@@ -24,6 +24,11 @@ public class Video {
     
     @Column
     private String image;
+    
+//    @Column
+//    private Integer duration;  
+    
+
 
 //  TODO
 //  @Column

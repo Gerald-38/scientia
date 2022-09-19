@@ -6,7 +6,7 @@ export class Video {
   constructor(
     public id: string,
     public title: string,
-    public descprion: string,
+    public description: string,
     public image: string,
   ) {}
 }

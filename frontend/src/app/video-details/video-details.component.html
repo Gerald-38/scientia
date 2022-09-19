@@ -1,5 +1,8 @@
 <h1>Titre du documentaire : </h1>
-<p *ngIf="video"> {{ video.title }} </p>
+<div *ngIf="video">
+    <p > {{ video.title }} </p>
+    <p > {{ video.description }} </p>
+</div>
 <p><button class="delete" (click)="onDeleteVideo(video)">Supprimer la video</button></p>
 <p class="delete" *ngIf="(message)">{{message}} </p>
 <a routerLink="/videos" class="nav-link">Retour Catalogue</a>

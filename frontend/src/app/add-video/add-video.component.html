@@ -7,16 +7,14 @@
             <table class="example-full-width" cellspacing="0">
                 <tr>
                     <td>
-                        <!-- <mat-form-field class="example-full-width"> -->
-                            <input matInput placeholder="Titre" [(ngModel)]="video.title" name="title" required>
-                            <!-- <input matInput placeholder="Titre" required> -->
-                        <!-- </mat-form-field> -->
+                        <input matInput placeholder="Titre" [(ngModel)]="video.title" name="title" required>
+                    </td>
+                    <td>
+                        <input matInput placeholder="Desciption" [(ngModel)]="video.description" name="description" required>
                     </td>
                 </tr>
             </table>
         </form>
-        <!-- <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner> -->
-        <!-- <mat-spinner [style.display]= "'block'"></mat-spinner> -->
     </mat-card-content>
     <mat-card-actions>
         <button mat-raised-button (click)="createVideo()" color="primary">Create</button>

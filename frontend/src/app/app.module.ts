@@ -11,19 +11,20 @@ import { LogoutComponent } from './logout/logout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BasicAuthHtppInterceptorService } from './service/basic-auth-interceptor.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatTableModule } from '@angular/material/table';
+// import { MatCardModule } from '@angular/material/card';
+// import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+// import { MatTooltipModule } from '@angular/material/tooltip';
+// import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatButtonModule } from '@angular/material/button';
 import { VideosComponent } from './videos/videos.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
 import { AddVideoComponent } from './add-video/add-video.component';
 import { UsersComponent } from './users/users.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { GlobalDisplayComponent } from './global-display/global-display.component';
 
 
 @NgModule({
@@ -38,22 +39,23 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     VideoDetailsComponent,
     AddVideoComponent,
     UsersComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    GlobalDisplayComponent
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatCardModule,
-    MatFormFieldModule,
+    // MatTableModule,
+    // MatCardModule,
+    // MatFormFieldModule,
     FormsModule,
-    MatProgressSpinnerModule,
-    MatTooltipModule,
-    MatToolbarModule,
+    // MatProgressSpinnerModule,
+    // MatTooltipModule,
+    // MatToolbarModule,
     HttpClientModule,
-    MatButtonModule
+    // MatButtonModule
 
   ],
   providers: [ { provide: HTTP_INTERCEPTORS, useClass: BasicAuthHtppInterceptorService, multi: true }],

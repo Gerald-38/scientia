@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<!-- <mat-toolbar color="primary">
     <mat-toolbar-row>
         <span><a mat-button style="font-size: larger;">SCIENTIA</a></span>
         <span class="example-fill-remaining-space"></span>
@@ -7,9 +7,67 @@
         <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
         <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a>
         <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/user-profile" class="nav-link">Mon profil</a>
-        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a>
-        <!-- <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a> -->
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a>        
         <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a>
         <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Déconnexion</a>
     </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar> -->
+
+<!-- <div class="header-container">
+    <span>SCIENTIA</span>
+    <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a>
+    <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="/user-profile" class="nav-link">Mon profil</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a>
+    <a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Déconnexion</a>
+</div> -->
+
+<header class="header">
+    <a href="" class="logo">SCIENTIA</a>
+    <input class="menu-btn" type="checkbox" id="menu-btn" />
+    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+    <ul class="menu">
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+      <li><a *ngIf="!loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/user-profile" class="nav-link">Mon profil</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Déconnexion</a></li>
+    </ul>
+</header>
+
+
+<!-- <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/adduser" class="nav-link">Inscription</a> -->
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+</nav> -->

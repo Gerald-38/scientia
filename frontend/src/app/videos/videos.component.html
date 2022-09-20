@@ -1,6 +1,7 @@
 <h1>CATALOGUE DES VIDEOS</h1>
 <div class="container" >   
-    <div class="box"*ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
+    <div class="box" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
       <p> {{ video.title }} </p>
     </div> 
 </div>
+

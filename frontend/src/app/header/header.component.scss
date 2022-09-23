@@ -15,15 +15,15 @@ a {
   box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
   // position: fixed;
   width: 100%;
-  z-index: 3;
+  z-index: 3;  
 }
 
 .header ul {
   margin: 0;
-  padding: 0;
+  // padding: 0;
   list-style: none;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #fff;  
 }
 
 .header li a {
@@ -123,9 +123,12 @@ a {
 
 /* 48em = 768px */
 
-@media (min-width: 48em) {
+@media (min-width: 55em) {
   .header {
     margin-bottom: 2rem;
+    // width: 90%;
+    border: 2px solid red;
+    height: 60px;
   }
   .header li {
     float: left;

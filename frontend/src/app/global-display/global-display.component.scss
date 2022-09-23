@@ -1,9 +1,23 @@
 body {
-    padding-top: 1rem;
+    width: 96%;
+    position: relative;
+    left: 2%;
+    right: 2%;
+    padding-bottom: 20px;
+    background-color: rgb(135, 162, 189);    
 }
 
-@media (min-width: 48em) {
+@media (min-width: 65em) {
     body {
-        padding-top: 5rem;
+    width: 80%;
+    position: relative;
+    left: 10%;
+    right: 10%;
     }
+}
+
+@media (max-width: 290px) {
+    body {
+        width: 96%;
+    }    
 }

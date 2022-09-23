@@ -1,7 +1,59 @@
-<h1>CATALOGUE DES VIDEOS</h1>
-<div class="container" >   
-    <div class="box" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
-      <p> {{ video.title }} </p>
-    </div> 
+<body>
+<h2>CATALOGUE DES VIDEOS</h2>
+
+<div class="choix-categorie">
+    <h2>Par catégories</h2>
+  <form action="">
+    <!-- <input type="select" placeholder="Sélectionnez une catégorie"> -->
+    <select name="categorie" id="categories-select">
+        <option value="">--"Sélectionnez une catégorie--</option>
+        <option value="astronomie">Astronomie</option>
+        <option value="physique">Physique</option>
+        <option value="biologie">Biologie</option>
+        <option value="mathématiques">Mathématiques</option>
+        <option value="politique">Politique</option>
+        <option value="lifestyle">Lifestyle</option>
+    </select>
+    <button (click)="onSelectByCategory()">Valider</button>
+  </form>
 </div>
+
+
+<div class="by-category" *ngIf="choixCatego">
+  <h2>Catégorie : Astronomie</h2>
+  <button (click)="onReload()">Réinitialiser</button>
+  <div class="container">  
+    <div class="card" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
+      <div class="car__image">
+      </div>
+      <div class="card__title">
+        <p class="card__data"> {{ video.title }} </p>
+      </div>
+      <div class="card__description">
+        <p class="card__data">Lorem ipsum dolor sit amet. Et autem minima ut consectetur dolorem et exercitationem quibusdam. </p>
+      </div>
+      <div class="card__category">
+        <p class="card__data">Astronomie</p>
+      </div>      
+    </div> 
+  </div>  
+</div>
+
+<div class="container" *ngIf="!choixCatego">   
+  <div class="card" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
+        <div class="car__image">
+        </div>
+        <div class="card__title">
+          <p class="card__data"> {{ video.title }} </p>
+        </div>
+        <div class="card__description">
+          <p class="card__data">Lorem ipsum dolor sit amet. Et autem minima ut consectetur dolorem et exercitationem quibusdam. </p>
+        </div>
+        <div class="card__category">
+          <p class="card__data">Astronomie</p>
+        </div>      
+  </div> 
+</div> 
+ 
+
 

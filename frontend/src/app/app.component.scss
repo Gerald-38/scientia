@@ -1,5 +1,6 @@
-body {
-    padding-left: 5%;
-    padding-right: 5%;
-//     top: 0px;
+@media (min-width: 65em) {
+    body {
+    width: 95%;
+    height: 100%
+    }
 }

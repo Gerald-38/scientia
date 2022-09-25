@@ -45,13 +45,13 @@ export class LoginComponent implements OnInit {
   checkLogin() {
     (this.loginservice.authenticate(this.username, this.password).subscribe(
       data => {
-        this.router.navigate(['videos'])
+        this.router.navigate(['videos'])               
         this.invalidLogin = false        
       },
       error => {
         this.invalidLogin = true
         this.error = error.message;
-      }
+      }      
     )
     );
     // console.log(this.username)

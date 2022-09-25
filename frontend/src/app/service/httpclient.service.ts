@@ -16,20 +16,23 @@ export class User {
   providedIn: "root"
 })
 export class HttpClientService {
+  private userUrl: string;
 
 
   constructor(private httpClient: HttpClient) {
+    this.userUrl = 'http://localhost:8080/users/';
 
   }
 
   getUsers():  Observable<User[]> {
     return this.httpClient.get<User[]>("http://localhost:8080/users/get");
   }
-
-
-  // public getUser(username: string): Observable<User> {
-  //   return this.httpClient.get<User>("http://localhost:8080/users/user?username=" + username);           
-  // }
+  
+  getUserByUserName(username: string): Observable<User> {
+    return this.httpClient.get<User>(this.userUrl + 'user?username=' + `${username}`).pipe(
+    map(user => user) // JSON
+    );
+  }
 
   public deleteUser(user: any) {
     return this.httpClient.delete<User>(

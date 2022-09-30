@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClientService, User } from '../service/httpclient.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -9,13 +10,18 @@ import { Component, OnInit } from '@angular/core';
 
 
 export class UserProfileComponent implements OnInit {
+  users: User[] | any;
   userName: any;
-  constructor() { }
+  constructor(private httpClientService: HttpClientService) { }
 
   
 
   ngOnInit(): void {    
     this.userName = sessionStorage.getItem("username");
+    this.httpClientService.getUsers().subscribe(data => {
+      this.users = data;      
+    });
   }
+  
 
 }

@@ -1,5 +1,9 @@
 package com.backend.model;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import java.util.List;
 
 import javax.persistence.*;
 
@@ -14,14 +18,36 @@ public class User {
     private String username;
     
     @Column
-//    @JsonIgnore
+//  @JsonIgnore
     private String password;
     
     @Column(columnDefinition = "varchar(255) default 'user'")
-//    @Column
+//  @Column
     private String role;
+    
+//  @JsonManagedReference 
+	@ManyToMany
+	@JoinTable(
+	  name = "video_users",
+	  joinColumns = @JoinColumn(name = "user_id"),
+	  inverseJoinColumns = @JoinColumn(name = "video_id"))
+	private List<Video> videos;
+	
+	
+    public User(long id, String username, String password, String role, List<Video> videos) {
+	super();
+	this.id = id;
+	this.username = username;
+	this.password = password;
+	this.role = role;
+	this.videos = videos;
+}
 
-    public String getUsername() {
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public String getUsername() {
         return username;
     }
     
@@ -53,12 +79,12 @@ public class User {
 		this.role = role;
 	}
 
-//	public User orElseThrow() {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-    
-    
+	public List<Video> getVideos() {
+		return videos;
+	}
 
+	public void setVideos(List<Video> videos) {
+		this.videos = videos;
+	}  
 }
 

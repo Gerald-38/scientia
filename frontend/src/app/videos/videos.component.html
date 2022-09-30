@@ -1,44 +1,37 @@
 <body>
 <h2>CATALOGUE DES VIDEOS</h2>
+<button (click)="onSelectByCategory()" >Par categorie</button>
+<button *ngIf="choixCatego" (click)="onReload()" >Retour à la liste</button>
 
-<div class="choix-categorie">
-    <h2>Par catégories</h2>
-  <form action="">
-    <!-- <input type="select" placeholder="Sélectionnez une catégorie"> -->
-    <select name="categorie" id="categories-select">
-        <option value="">--"Sélectionnez une catégorie--</option>
-        <option value="astronomie">Astronomie</option>
-        <option value="physique">Physique</option>
-        <option value="biologie">Biologie</option>
-        <option value="mathématiques">Mathématiques</option>
-        <option value="politique">Politique</option>
-        <option value="lifestyle">Lifestyle</option>
+<div class="choix-categorie" *ngIf="choixCatego">
+    <h2>Sélectionnez une catégorie</h2>
+    <select name="categorie" id="categorySelect" [(ngModel)]="choosenCategory">        
+        <option *ngFor="let category of categories" value={{category.name}}>{{category.name}}</option>
     </select>
-    <button (click)="onSelectByCategory()">Valider</button>
-  </form>
 </div>
 
-
-<div class="by-category" *ngIf="choixCatego">
-  <h2>Catégorie : Astronomie</h2>
-  <button (click)="onReload()">Réinitialiser</button>
-  <div class="container">  
-    <div class="card" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
-      <div class="car__image">
+<h2 *ngIf="choixCatego"> Contenus {{choosenCategory}} </h2> 
+<div class="container" *ngIf="choixCatego" > 
+  <div *ngFor="let video of videos">
+    <div *ngIf="video.categories[0].name == choosenCategory" >
+      <div  class="card" routerLink="/video/{{ video.id }}">
+        <div class="car__image">
+        </div>
+        <div class="card__title">
+          <p class="card__data"> {{ video.title }} </p>
+        </div>
+        <div class="card__description">
+          <p class="card__data">Lorem ipsum dolor sit amet. Et autem minima ut consectetur dolorem et exercitationem quibusdam. </p>
+        </div>
+        <div class="card__category">
+          <p class="card__data" *ngFor="let categorie of video.categories">{{categorie.name}}</p>
+        </div>   
       </div>
-      <div class="card__title">
-        <p class="card__data"> {{ video.title }} </p>
-      </div>
-      <div class="card__description">
-        <p class="card__data">Lorem ipsum dolor sit amet. Et autem minima ut consectetur dolorem et exercitationem quibusdam. </p>
-      </div>
-      <div class="card__category">
-        <p class="card__data">Astronomie</p>
-      </div>      
-    </div> 
-  </div>  
+    </div>    
+  </div>
 </div>
 
+<h2 *ngIf="!choixCatego"> Contenus </h2> 
 <div class="container" *ngIf="!choixCatego">   
   <div class="card" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
         <div class="car__image">
@@ -50,7 +43,7 @@
           <p class="card__data">Lorem ipsum dolor sit amet. Et autem minima ut consectetur dolorem et exercitationem quibusdam. </p>
         </div>
         <div class="card__category">
-          <p class="card__data">Astronomie</p>
+          <p class="card__data" *ngFor="let categorie of video.categories">{{categorie.name}}</p>
         </div>      
   </div> 
 </div> 

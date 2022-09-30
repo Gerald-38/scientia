@@ -1,28 +1,10 @@
-// :host {
-//     display: flex;
-//     justify-content: center;
-//     margin: 100px 0px;
-// }
+.register {
+    height: 40rem;
+    position: relative;
+}
 
-// .mat-form-field {
-//     width: 100%;
-//     min-width: 300px;
-// }
-
-// mat-card-title,
-// mat-card-content {
-//     display: flex;
-//     justify-content: center;
-// }
-
-// .error {
-//     padding: 16px;
-//     width: 300px;
-//     color: white;
-//     background-color: red;
-// }
-
-// .button {
-//     display: flex;
-//     justify-content: flex-end;
-// }
+.register-form {
+    position: absolute; /* postulat de départ */
+    top: 50%; left: 50%; /* à 50%/50% du parent référent */
+    transform: translate(-50%, -50%); /* décalage de 50% de sa propre taille */
+}

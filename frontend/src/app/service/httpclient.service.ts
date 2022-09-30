@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map, Observable } from "rxjs";
+import { Video } from "./video.service";
 
 export class User {
   constructor(
     public username: string,
     public password: string,
     public role: string,
+    public videos: Array<Video>,
   ) {}
 }
 

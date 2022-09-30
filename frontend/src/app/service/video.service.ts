@@ -8,6 +8,8 @@ export class Video {
     public title: string,
     public description: string,
     public image: string,
+    public duration: number,
+    public categories: Array<String>,
   ) {}
 }
 

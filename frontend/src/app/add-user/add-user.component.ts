@@ -25,7 +25,7 @@ import { Router } from '@angular/router';
   styleUrls: ["./add-user.component.scss"]
 })
 export class AddUserComponent implements OnInit {
-  user: User = new User("", "", "user");
+  user: User = new User("", "", "user", []);
   // public showSpinner: boolean = true;
 
   constructor(private httpClientService: HttpClientService,

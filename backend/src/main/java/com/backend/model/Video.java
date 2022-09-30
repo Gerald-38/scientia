@@ -2,6 +2,7 @@ package com.backend.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 @Entity
@@ -45,6 +48,10 @@ public class Video {
 	  joinColumns = @JoinColumn(name = "video_id"),
 	inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private List<Category> categories;
+	
+    @JsonBackReference
+	@ManyToMany(mappedBy = "videos", cascade = CascadeType.ALL)
+	private List<User> users;
     
 //  TODO
 //  @Column
@@ -56,7 +63,7 @@ public class Video {
 		// TODO Auto-generated constructor stub
 	}	
 	
-	public Video(long id, String title, String description, String image, Integer duration, List<Category> categories) {
+	public Video(long id, String title, String description, String image, Integer duration, List<Category> categories, List<User> users) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -64,6 +71,7 @@ public class Video {
 		this.image = image;
 		this.duration = duration;
 		this.categories = categories;
+		this.users = users;
 	}
 
 
@@ -114,6 +122,16 @@ public class Video {
 	public void setCategories(List<Category> categories) {
 		this.categories = categories;
 	}
+
+	public List<User> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<User> users) {
+		this.users = users;
+	}
+	
+	
 	
 	
 	

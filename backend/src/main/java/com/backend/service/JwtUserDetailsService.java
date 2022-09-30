@@ -19,21 +19,21 @@ import java.util.List;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 	@Autowired
-	private UserRepository userDao;
+	private UserRepository userRepository;
 	
 //	@Autowired
-//	private UserRepository userDaoRepository;
+//	private UserRepository userRepositoryRepository;
 
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
 	
-    public List<User> getUserDaos() {
-        return userDao.findAll();
+    public List<User> getUserRepositories() {
+        return userRepository.findAll();
     } 
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userDao.findByUsername(username);
+		User user = userRepository.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
@@ -45,11 +45,30 @@ public class JwtUserDetailsService implements UserDetailsService {
 		User newUser = new User();
 		newUser.setUsername(user.getUsername());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		newUser.setRole(user.getRole());	
-		return userDao.save(newUser);
+		newUser.setRole(user.getRole());
+		newUser.setVideos(user.getVideos());
+		return userRepository.save(newUser);
 	}
 	
     public User getByUsername(String username) {
-    	return userDao.findByUsername(username);    	
+    	return userRepository.findByUsername(username);    	
+    }
+    
+    public Boolean deleteById(Long id) {
+        boolean isUserInDB;
+        
+        try {
+          isUserInDB = userRepository.existsById(id);
+
+          if (!isUserInDB) {
+            return false;
+          }
+          userRepository.deleteById(id);
+          return true;
+          
+        } catch (RuntimeException e) {
+        	System.out.println(e.getLocalizedMessage());
+          return false;
+        }
     }
 }

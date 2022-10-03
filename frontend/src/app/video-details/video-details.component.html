@@ -2,8 +2,15 @@
 <div *ngIf="video">
     <p > {{ video.title }} </p>
     <p > {{ video.description }} </p>
+    <p>
+        <img src="{{imgRoot + video.image}}" alt="image de la video" class="video-image">
+    </p>
+    <p>Durée : {{video.duration}}</p>
+    <p>Catégorie : {{video.categories[0].name}} </p>
 </div>
 <p><button class="delete" (click)="onDeleteVideo(video)">Supprimer la video</button></p>
 <p class="delete" *ngIf="(message)">{{message}} </p>
+<p (click)="onAddVideo()" *ngIf="(isAdded) === false"><button>Ajouter à ma liste</button></p>
+<p *ngIf="(isAdded) === true" class="video-added-message">Video ajouée à ma liste</p>
 <a routerLink="/videos" class="nav-link">Retour Catalogue</a>
  

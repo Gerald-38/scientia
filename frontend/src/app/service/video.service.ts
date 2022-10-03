@@ -9,7 +9,8 @@ export class Video {
     public description: string,
     public image: string,
     public duration: number,
-    public categories: Array<String>,
+    // public categories: Array<String>,
+    public categories: any = []
   ) {}
 }
 

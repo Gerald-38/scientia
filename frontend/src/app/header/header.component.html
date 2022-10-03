@@ -10,7 +10,7 @@
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/user-profile" class="nav-link">Mon profil</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/videos" class="nav-link">Catalogue Vidéos</a></li>
       <!-- <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a></li> -->
-      <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link">Admin</a></li>
+      <li><a *ngIf="loginService.isUserLoggedIn() && loginService.isUserAdmin()" routerLink="/" class="nav-link">Admin</a></li>
       <li><a *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Déconnexion</a></li>
     </ul>
 </header>

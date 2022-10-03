@@ -8,19 +8,19 @@ import { HttpClientService, User } from '../service/httpclient.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  userRole: any;
+  // userRole: any;
   userOnline: any;
-
-  user!: User;
+  currentUser  = sessionStorage.getItem('user');
+  user!: User;  
+  
 
   constructor(public loginService:AuthenticationService, private httpClientService: HttpClientService){ }
   ngOnInit() {
     this.userOnline = sessionStorage.getItem('username');
     console.log(this.userOnline);
 
-    this.httpClientService.getUserByUserName(this.userOnline).subscribe (
-      user => this.user = user, 
-    );
-  }
+    this.loginService.saveUserRole();
 
+    
+  }
 }

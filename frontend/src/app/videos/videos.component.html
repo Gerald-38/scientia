@@ -5,7 +5,8 @@
 
 <div class="choix-categorie" *ngIf="choixCatego">
     <h2>Sélectionnez une catégorie</h2>
-    <select name="categorie" id="categorySelect" [(ngModel)]="choosenCategory">        
+    <select name="categorie" id="categorySelect" [(ngModel)]="choosenCategory">
+        <option value="">--categorie--</option>        
         <option *ngFor="let category of categories" value={{category.name}}>{{category.name}}</option>
     </select>
 </div>

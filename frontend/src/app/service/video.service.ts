@@ -1,16 +1,16 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map, Observable } from "rxjs";
+import { Category } from "./category.service";
 
 export class Video {
   constructor(
     public id: string,
     public title: string,
     public description: string,
-    public image: string,
+    public image: string | undefined,
     public duration: number,
-    // public categories: Array<String>,
-    public categories: any = []
+    public categories = [{id}],
   ) {}
 }
 

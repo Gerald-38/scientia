@@ -14,7 +14,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // import { MatTableModule } from '@angular/material/table';
 // import { MatCardModule } from '@angular/material/card';
 // import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 // import { MatTooltipModule } from '@angular/material/tooltip';
 // import { MatToolbarModule } from '@angular/material/toolbar';
@@ -51,6 +51,7 @@ import { GlobalDisplayComponent } from './global-display/global-display.componen
     // MatCardModule,
     // MatFormFieldModule,
     FormsModule,
+    ReactiveFormsModule,
     // MatProgressSpinnerModule,
     // MatTooltipModule,
     // MatToolbarModule,

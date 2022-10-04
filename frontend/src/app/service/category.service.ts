@@ -3,10 +3,9 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 
 export class Category {
+  static id: any;
   constructor(
-    public id: string,
-    public name: string,
-    public videos: Array<String>,
+    public id: string
   ) {}
 }
 

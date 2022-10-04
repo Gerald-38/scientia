@@ -32,8 +32,7 @@ export class VideosComponent implements OnInit {
     });
 
     this.categoryService.getCategories().subscribe(data => {
-      this.categories = data
-      // this.categories = console.log(data)     
+      this.categories = data 
     });
   } 
 }

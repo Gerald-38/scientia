@@ -37,38 +37,21 @@ export class AuthenticationService  {
     // console.log(!(user === null));
     return !(user === null);
   }
-  
-  // isUserAdmin() {
-  //   let username = sessionStorage.getItem("username");
-  //   if (username) {
-  //     this.httpClientService.getUserByUserName(username).pipe(
-  //       map((userData: { role: string; }) => {
-  //         if (sessionStorage.getItem(userData.role) === "admin") {
-  //           return true
-  //         }
-  //         else {
-  //           return false
-  //         }
-  //       })
-  //     );
-  //   }
-  // }
-
-  // isUserAdmin() {
-  //   let userRole = sessionStorage.getItem("role")
-  //   if (userRole === "admin") {
-  //     return true;
-  //   }
-  //   else {
-  //     return false;
-  //   }    
-  // }
 
   saveUserRole() {
     let currentuser: string | null = sessionStorage.getItem("username")
     if (currentuser) {
       this.httpClientService.getUserByUserName(currentuser).subscribe (      
         user => sessionStorage.setItem('role', user.role)      
+      );  
+    } 
+  }
+
+  saveUser() {
+    let currentuser: string | null = sessionStorage.getItem("username")
+    if (currentuser) {
+      this.httpClientService.getUserByUserName(currentuser).subscribe (      
+        user => sessionStorage.setItem('user', JSON.stringify(user))      
       );  
     } 
   }
@@ -88,6 +71,7 @@ export class AuthenticationService  {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("role");
     sessionStorage.removeItem("user");
+    sessionStorage.removeItem("video");
   }
 }
 

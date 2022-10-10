@@ -25,6 +25,16 @@ body{
   border-radius: 10px;
 }
 
+
+img {
+  width: 50%;
+}
+
+.no-display {
+  display: none;
+  z-index: -10000;
+}
+
 @media (min-width: 55em) {
   .container
   {

@@ -50,7 +50,7 @@ public class Video {
 	private List<Category> categories;
 	
     @JsonBackReference
-	@ManyToMany(mappedBy = "videos", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "videos", cascade = CascadeType.PERSIST)
 	private List<User> users;
     
 //  TODO

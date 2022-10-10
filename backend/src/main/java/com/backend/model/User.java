@@ -14,14 +14,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     
-    @Column
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
     
     @Column
 //  @JsonIgnore
     private String password;
     
-    @Column(columnDefinition = "varchar(255) default 'user'")
+    @Column
 //  @Column
     private String role;
     

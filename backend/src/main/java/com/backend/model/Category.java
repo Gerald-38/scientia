@@ -25,7 +25,7 @@ public class Category {
     private String name;
     
     @JsonBackReference
-	@ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "categories", cascade = CascadeType.PERSIST)
 	private List<Video> videos;
 
 	public Category(long id, String name, List<Video> videos) {

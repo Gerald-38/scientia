@@ -18,7 +18,8 @@ export class AddVideoComponent implements OnInit {
     "duration": 0,
     "categories": [
         {
-            "id": ''
+            "id": '',
+            "name": ''
         }
     ]
   }

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map } from 'rxjs';
+import { HttpClientService, User } from '../service/httpclient.service';
 import { VideoService, Video } from '../service/video.service';
 
 @Component({
@@ -7,28 +9,43 @@ import { VideoService, Video } from '../service/video.service';
   templateUrl: './video-details.component.html',
   styleUrls: ['./video-details.component.scss']
 })
-export class VideoDetailsComponent implements OnInit {
-
-  video!: Video;
+export class VideoDetailsComponent implements OnInit, OnDestroy {
+  @Output() onAdd: EventEmitter<Video> = new EventEmitter();
+  user!: User | any;
+  video!: Video | any;
   message!: string;
   imgRoot: string = "../../assets/images/";
   isAdded: boolean = false;
+  currentVideo: Video | any;
 
-  constructor(private route: ActivatedRoute, private videoService: VideoService, private router: Router) { }
-
-  onAddVideo() {
-    this.isAdded = true;
-  }
+  constructor(private route: ActivatedRoute, private videoService: VideoService, private httpClientService: HttpClientService ,private router: Router) { }
 
   ngOnInit(): void {
 
     const id = this.route.snapshot.paramMap.get('id');
+    if (id) {  
+      this.videoService.getVideoById(id).subscribe(
+        video => (this.video = video)                
+      )
+    }
 
     if (id) {  
       this.videoService.getVideoById(id).subscribe(
-        video => this.video = video                
+        video => sessionStorage.setItem('video', JSON.stringify(video))                
       )
-    }    
+    }   
+
+    this.currentVideo = sessionStorage.getItem('video');
+    let currentVideoUsed: Video = JSON.parse(this.currentVideo);
+    console.log(currentVideoUsed);
+    this.videoService.checkAdded(currentVideoUsed);    
+    
+  }
+
+  onAddVideo(video: Video) {
+    this.onAdd.emit(video)   
+    this.videoService.addVideoToProfile(video);
+    this.isAdded = true;
   }
 
   onDeleteVideo(video: Video) {
@@ -41,6 +58,10 @@ export class VideoDetailsComponent implements OnInit {
         }
       )
     }    
+  }
+
+  ngOnDestroy(): void {   
+
   }
 
 }

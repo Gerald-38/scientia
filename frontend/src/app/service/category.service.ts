@@ -5,7 +5,8 @@ import { map, Observable } from "rxjs";
 export class Category {
   static id: any;
   constructor(
-    public id: string
+    public id: string,
+    public name: string
   ) {}
 }
 

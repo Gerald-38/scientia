@@ -25,6 +25,9 @@ import { AddVideoComponent } from './add-video/add-video.component';
 import { UsersComponent } from './users/users.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GlobalDisplayComponent } from './global-display/global-display.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
+import { UpdateCategoryComponent } from './update-category/update-category.component';
 
 
 @NgModule({
@@ -40,7 +43,10 @@ import { GlobalDisplayComponent } from './global-display/global-display.componen
     AddVideoComponent,
     UsersComponent,
     UserProfileComponent,
-    GlobalDisplayComponent
+    GlobalDisplayComponent,
+    AdminPanelComponent,
+    AddCategoryComponent,
+    UpdateCategoryComponent
 
   ],
   imports: [

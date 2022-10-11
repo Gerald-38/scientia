@@ -23,4 +23,21 @@ export class CategoryService {
    getCategories(): Observable<Category[]> {
     return this.httpClient.get<Category[]>(this.categoriesUrl);
   }
+
+  public createCategory(category: any) {
+    return this.httpClient.post<Category>(
+      "http://localhost:8080/categories/post",
+      category
+    );
+  }
+
+  updateCategory(category: Category): Observable<void> {
+    return this.httpClient.put<void>(this.categoriesUrl + `update/${category.id}`, category);
+  }
+
+  public deleteCategory(category: any) {
+    return this.httpClient.delete<Category>(
+      "http://localhost:8080/categories/delete" + "/" + category.id
+    );
+  }
 }

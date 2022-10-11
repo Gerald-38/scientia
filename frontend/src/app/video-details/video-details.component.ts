@@ -17,13 +17,12 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
   imgRoot: string = "../../assets/images/";
   isAdded: boolean = false;
   currentVideo: Video | any;
-  // userVideos!: Video[] | any;
 
   constructor(private route: ActivatedRoute, private videoService: VideoService, private userService: UserService ,private router: Router) { }
 
   ngOnInit(): void {
 
-    const id = this.route.snapshot.paramMap.get('id');
+    const id: any = this.route.snapshot.paramMap.get('id');
     if (id) {  
       this.videoService.getVideoById(id).subscribe(
         video => (this.video = video)                
@@ -31,23 +30,29 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
     }
 
     let userVideoChoice: any = sessionStorage.getItem('userVideos');
-    let userVideos = JSON.parse(userVideoChoice) 
-    // console.log (JSON.parse(userVideoChoice));
-    if (id) {
-    if (userVideos.some((x: string | null) => x === id)) {
-      console.log('true');
-     }
-     else {
-      console.log('false')
-     }
-    }      
-
+    let userVideos = JSON.parse(userVideoChoice)    
+    // console.log ('Videos du User: ' + JSON.parse(userVideoChoice));
+    // console.log ('Videos du User: ' + userVideos);
+    // console.log ('Videos du User: ' + userVideos[0]);
+    // console.log('Id de la video: ' + id);
+    if (userVideos.indexOf(parseInt(id)) > -1) {
+      this.isAdded = true
+    }
+    else {
+      this.isAdded = false
+    }
   }
 
   onAddVideo(video: Video) {
     this.onAdd.emit(video)   
     this.videoService.addVideoToProfile(video);
     this.isAdded = true;
+  }
+
+  onRemoveVideo(video: Video) {
+    this.onAdd.emit(video)   
+    this.videoService.removeVideoFromProfile(video);
+    this.isAdded = false;
   }
 
   onDeleteVideo(video: Video) {

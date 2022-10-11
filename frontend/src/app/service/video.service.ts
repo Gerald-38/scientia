@@ -53,22 +53,16 @@ export class VideoService {
     this.user = sessionStorage.getItem('user');
     let currentUser: User = JSON.parse(this.user); 
     let currentuserVideos = currentUser.videos;
-    currentuserVideos.push(video);
-    console.log('******************' + JSON.stringify(video))    
+    currentuserVideos.push(video);   
     this.userService.updateUser(currentUser).subscribe(user => user);
   }
 
-  checkAdded(video:Video) {
+  removeVideoFromProfile(video:Video) {        
     this.user = sessionStorage.getItem('user');
-    let currentUser: User = JSON.parse(this.user);
-    console.log(video.id);
-    console.log(currentUser.videos)
-    console.log(currentUser.videos[0].id)
-    for (const elt of currentUser.videos) {
-      if (elt.id === video.id) {
-        console.log('video ajoutée')
-      }
-    }
-
+    let currentUser: User = JSON.parse(this.user); 
+    let currentuserVideos: Video[] | any = currentUser.videos; 
+    let  videoIndex = currentuserVideos.findIndex((userVideo: Video) => video.id === userVideo.id)
+    currentuserVideos.splice(videoIndex, 1);
+    this.userService.updateUser(currentUser).subscribe(user => user);
   }
 }

@@ -1,0 +1,97 @@
+<h1>CONSOLE D'ADMINISTRATION</h1>
+<h2>Utilisateurs</h2>
+<div class="container"> <!--provides a wrapper for testing the scroll-->
+    <div class="tWrap">
+      <div class="tWrap__head">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Role</th>
+              <th>Editer</th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+        </table>
+      </div> <!--/.tWrap__head-->
+      <div class="tWrap__body">
+        <table>
+          <tbody>
+            <tr *ngFor="let user of users">
+              <td>{{user.id}}</td>
+              <td>{{user.username}}</td>
+              <td>{{user.role}}</td>
+              <td><button class="btn btn-success">Editer</button></td>
+              <td><button class="btn btn-danger" (click)="deleteUser(user)">Supprimer</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!--/.tWrap__body-->
+    </div> <!--/.tWrap-->
+</div> <!--/.container--> 
+
+
+<h2>Videos</h2>
+<div class="container"> <!--provides a wrapper for testing the scroll-->
+    <div class="tWrap">
+      <div class="tWrap__head">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Titre</th>
+              <th>Editer</th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+        </table>
+      </div> <!--/.tWrap__head-->
+      <div class="tWrap__body">
+        <table>
+          <tbody>
+            <tr *ngFor="let video of videos">
+              <td>{{video.id}}</td>
+              <td>{{video.title}}</td>
+              <td><button class="btn btn-success">Editer</button></td>
+              <td><button class="btn btn-danger" (click)="deleteVideo(video)">Supprimer</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!--/.tWrap__body-->
+    </div> <!--/.tWrap-->
+</div> <!--/.container--> 
+<h3>Ajout d'une video</h3>
+<button mat-raised-button color="primary" routerLink="/add-video">Ajouter une video</button>
+
+<h2>Catégories</h2>
+<div class="container"> <!--provides a wrapper for testing the scroll-->
+    <div class="tWrap">
+      <div class="tWrap__head">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nom</th>
+              <th>Editer</th>
+              <th>Supprimer</th>
+            </tr>
+          </thead>
+        </table>
+      </div> <!--/.tWrap__head-->
+      <div class="tWrap__body">
+        <table>
+          <tbody>
+            <tr *ngFor="let category of categories">
+              <td>{{category.id}}</td>
+              <td>{{category.name}}</td>
+              <td><button class="btn btn-success">Editer</button></td>
+              <td><button class="btn btn-danger" (click)="deleteCategory(category)">Supprimer</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!--/.tWrap__body-->
+    </div> <!--/.tWrap-->
+</div> <!--/.container--> 
+<h3>Ajout d'une catégorie</h3>
+<button mat-raised-button color="primary" routerLink="/add-category">Ajouter une catégorie</button>

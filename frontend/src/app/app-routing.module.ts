@@ -11,8 +11,10 @@
 
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddCategoryComponent } from './add-category/add-category.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { AddVideoComponent } from './add-video/add-video.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { AuthGaurdService } from './service/auth-guard.service';
@@ -23,7 +25,7 @@ import { VideosComponent } from './videos/videos.component';
 
 
 const routes: Routes = [
-  { path: '', component: UsersComponent,canActivate:[AuthGaurdService] },
+  { path: '', component: AdminPanelComponent,canActivate:[AuthGaurdService] },
   { path: 'videos', component: VideosComponent,canActivate:[AuthGaurdService] },
   {path: 'video/:id', component: VideoDetailsComponent, canActivate:[AuthGaurdService]},
   { path: 'add-video', component: AddVideoComponent, canActivate:[AuthGaurdService] },
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: 'user-profile', component: UserProfileComponent,canActivate:[AuthGaurdService]},
   { path: 'login', component: LoginComponent },
   { path: 'logout', component: LogoutComponent,canActivate:[AuthGaurdService] },
+  { path: 'add-category', component: AddCategoryComponent, canActivate:[AuthGaurdService] },
+
 ];
 
 @NgModule({

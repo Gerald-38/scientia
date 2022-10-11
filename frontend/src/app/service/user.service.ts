@@ -44,7 +44,7 @@ export class UserService {
         videos.forEach((v: Video) => {
           userVideos.push(v.id);
         });
-        console.log(userVideos);
+        // console.log(userVideos);
         sessionStorage.setItem('userVideos', JSON.stringify(userVideos))
         return userVideos;
       }),
@@ -78,7 +78,7 @@ export class UserService {
 
   public deleteUser(user: any) {
     return this.httpClient.delete<User>(
-      "http://localhost:8080/users" + "/" + user.userId
+      "http://localhost:8080/users/delete" + "/" + user.id
     );
   }
 }

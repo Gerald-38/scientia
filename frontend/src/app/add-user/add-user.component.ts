@@ -1,23 +1,6 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-add-user',
-//   templateUrl: './add-user.component.html',
-//   styleUrls: ['./add-user.component.scss']
-// })
-// export class AddUserComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
-import { Component, OnInit } from "@angular/core";
-import { HttpClientService, User } from "../service/httpclient.service";
+import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { UserService, User } from "../service/user.service";
 import { Router } from '@angular/router';
-// import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @Component({
   selector: "app-add-user",
@@ -25,19 +8,28 @@ import { Router } from '@angular/router';
   styleUrls: ["./add-user.component.scss"]
 })
 export class AddUserComponent implements OnInit {
+ 
   user: User = new User("", "", "", "user", []);
-  // public showSpinner: boolean = true;
+  passwordConfirm!: string;
+  message!: string;
+  
 
-  constructor(private httpClientService: HttpClientService,
+  constructor(private userService: UserService,
     private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   createUser(): void {
-    console.debug(this.user);
-    this.httpClientService.createUser(this.user).subscribe(data => {
-      alert("User created successfully.");
+    if (this.user.password === this.passwordConfirm) {
+      this.userService.createUser(this.user).subscribe(data => {
+      alert("Votre compte est créé ! Connectez vous dès à présent !");
       this.router.navigate([''])
-    });
+      });
+    }
+    else {
+      this.message = "Veuillez vérifier le mot de passe : il doit être identique dans les deux champs de saisie"
+    }
   }
 }

@@ -6,6 +6,9 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.util.List;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "t_user")
@@ -15,13 +18,16 @@ public class User {
     private long id;
     
     @Column(name = "username", nullable = false, unique = true)
+    @NotBlank(message="Name must not be empty")
+    @Size(min=2, max=40)
     private String username;
     
     @Column
+    @NotBlank(message="Password must not be empty")
 //  @JsonIgnore
     private String password;
     
-    @Column
+    @Column(columnDefinition = "varchar(255) default 'user'")
 //  @Column
     private String role;
     

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { HttpClientService, User } from "../service/httpclient.service";
+import { UserService, User } from "../service/user.service";
 // import { MatTableModule } from '@angular/material/table' 
 // import { HttpClientService, User } from "../service/httpclient.service";
 
@@ -12,7 +12,7 @@ export class UsersComponent implements OnInit {
   users: User[] | any;
   displayedColumns: string[] = ["username", "role"];
 
-  constructor(private httpClientService: HttpClientService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
   //   this.httpClientService
@@ -24,7 +24,7 @@ export class UsersComponent implements OnInit {
   //   this.users = response;
   // }
 
-  this.httpClientService.getUsers().subscribe(data => {
+  this.userService.getUsers().subscribe(data => {
     this.users = data;      
   });
 }

@@ -1,22 +1,27 @@
 <div class="register">
-    <div class="register-form">
+    <h1>Bienvenue ! inscrivez vous ou créez un compte !</h1>
+    <div class="register-form">        
         <h2>Inscription</h2>
-        <form class="example-form">
-            <table class="example-full-width" cellspacing="0">
-                <tr>
-                    <td>
-                        <input matInput placeholder="Username" [(ngModel)]="user.username" name="username" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <input matInput placeholder="Password" [(ngModel)]="user.password" name="password" required>
-                    </td>
-                </tr>
-            </table>
+        <form >
+            <div class="form-group">
+              <label for="username">Pseudo :</label>
+              <input type="text" class="form-control" 
+              id="username" name="username" placeholder="Pseudo" [(ngModel)]="user.username" required>      
+            </div>
+            <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input type="password" class="form-control"  id="password" name="password" [(ngModel)]="user.password" required>
+            </div>
+            <div class="form-group">
+                <label for="passwordconfirm">Confirmation du mot de passe</label>
+                <input type="password" class="form-control"  id="passwordconfirm" name="passwordconfirm" [(ngModel)]="this.passwordConfirm">
+            </div>
+            <button  class="btn btn-primary" (click)="createUser()">Je m'inscris</button>
         </form>
-        <button mat-raised-button (click)="createUser()" color="primary">Valider</button>
+        <p class="message"> {{message}} </p>
     </div>
 </div>    
+
+
 
 

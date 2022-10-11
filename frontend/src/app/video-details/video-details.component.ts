@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
-import { HttpClientService, User } from '../service/httpclient.service';
+import { UserService, User } from '../service/user.service';
 import { VideoService, Video } from '../service/video.service';
 
 @Component({
@@ -17,8 +17,9 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
   imgRoot: string = "../../assets/images/";
   isAdded: boolean = false;
   currentVideo: Video | any;
+  // userVideos!: Video[] | any;
 
-  constructor(private route: ActivatedRoute, private videoService: VideoService, private httpClientService: HttpClientService ,private router: Router) { }
+  constructor(private route: ActivatedRoute, private videoService: VideoService, private userService: UserService ,private router: Router) { }
 
   ngOnInit(): void {
 
@@ -29,17 +30,18 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
       )
     }
 
-    if (id) {  
-      this.videoService.getVideoById(id).subscribe(
-        video => sessionStorage.setItem('video', JSON.stringify(video))                
-      )
-    }   
+    let userVideoChoice: any = sessionStorage.getItem('userVideos');
+    let userVideos = JSON.parse(userVideoChoice) 
+    // console.log (JSON.parse(userVideoChoice));
+    if (id) {
+    if (userVideos.some((x: string | null) => x === id)) {
+      console.log('true');
+     }
+     else {
+      console.log('false')
+     }
+    }      
 
-    this.currentVideo = sessionStorage.getItem('video');
-    let currentVideoUsed: Video = JSON.parse(this.currentVideo);
-    console.log(currentVideoUsed);
-    this.videoService.checkAdded(currentVideoUsed);    
-    
   }
 
   onAddVideo(video: Video) {

@@ -37,7 +37,7 @@ public class VideoController {
     private VideoService videoService;
     
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    public List<Video> getVideoDaos(Model model) {
+    public List<Video> getVideos(Model model) {
         List<Video> videos = videoService.getVideoDaos();
         model.addAttribute("videoDaos", videos);
         return videos;
@@ -50,7 +50,6 @@ public class VideoController {
     }
     
     @PostMapping("/post")
-//    @RequestMapping(value = "/post", method = RequestMethod.POST)
     public void createMovie(@RequestBody Video video)  {
     	videoService.addVideo(video);        
     }

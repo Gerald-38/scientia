@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../service/authentication-service';
-import { HttpClientService, User } from '../service/httpclient.service';
+import { UserService, User } from '../service/user.service';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit {
   user!: User;  
   
 
-  constructor(public loginService:AuthenticationService, private httpClientService: HttpClientService){ }
+  constructor(public loginService:AuthenticationService, private userService: UserService){ }
   ngOnInit() {
     this.userOnline = sessionStorage.getItem('username');
     console.log(this.userOnline);

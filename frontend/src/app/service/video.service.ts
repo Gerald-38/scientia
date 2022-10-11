@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 import { Category } from "./category.service";
-import { HttpClientService, User } from "./httpclient.service";
+import { UserService, User } from "./user.service";
 
 export class Video {
   constructor(
@@ -24,7 +24,7 @@ export class VideoService {
   user!: User | any;
   video!: Video | any;
 
-  constructor(private httpClient: HttpClient, private httpClientService: HttpClientService) {
+  constructor(private httpClient: HttpClient, private userService: UserService) {
     this.videosUrl = 'http://localhost:8080/videos/get';
   }
 
@@ -55,7 +55,7 @@ export class VideoService {
     let currentuserVideos = currentUser.videos;
     currentuserVideos.push(video);
     console.log('******************' + JSON.stringify(video))    
-    this.httpClientService.updateUser(currentUser).subscribe(user => user);
+    this.userService.updateUser(currentUser).subscribe(user => user);
   }
 
   checkAdded(video:Video) {

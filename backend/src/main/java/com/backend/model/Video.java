@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -26,20 +27,19 @@ public class Video {
     private long id;
 	
     @Column
+    @NotBlank
     private String title;
     
     @Column
+    @NotBlank
     private String description;
     
     @Column
+    @NotBlank
     private String image;
     
     @Column
-    private Integer duration;   
-
-//  TODO
-//  @Column
-//  private String category
+    private Integer duration;  
     
 //  @JsonManagedReference 
 	@ManyToMany
@@ -130,16 +130,5 @@ public class Video {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
-	
-	
-	
-	
-	
-	
-    
-    
-
-
 
 }

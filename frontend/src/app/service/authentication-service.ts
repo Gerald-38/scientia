@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { HttpClientService, User } from "./httpclient.service";
+import { UserService, User } from "./user.service";
 
 // export class User {
 //   constructor(public status: string) {}
@@ -15,7 +15,7 @@ import { HttpClientService, User } from "./httpclient.service";
 export class AuthenticationService  {
   
 
-  constructor(private httpClient: HttpClient, private httpClientService: HttpClientService) {}
+  constructor(private httpClient: HttpClient, private userService: UserService) {}
 // Provide username and password for authentication, and once authentication is successful, 
 //store JWT token in session
   authenticate(username: string, password: any) {
@@ -41,7 +41,7 @@ export class AuthenticationService  {
   saveUserRole() {
     let currentuser: string | null = sessionStorage.getItem("username")
     if (currentuser) {
-      this.httpClientService.getUserByUserName(currentuser).subscribe (      
+      this.userService.getUserByUserName(currentuser).subscribe (      
         user => sessionStorage.setItem('role', user.role)      
       );  
     } 
@@ -50,7 +50,7 @@ export class AuthenticationService  {
   saveUser() {
     let currentuser: string | null = sessionStorage.getItem("username")
     if (currentuser) {
-      this.httpClientService.getUserByUserName(currentuser).subscribe (      
+      this.userService.getUserByUserName(currentuser).subscribe (      
         user => sessionStorage.setItem('user', JSON.stringify(user))      
       );  
     } 
@@ -72,6 +72,7 @@ export class AuthenticationService  {
     sessionStorage.removeItem("role");
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("video");
+    sessionStorage.removeItem("videos");
   }
 }
 

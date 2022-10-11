@@ -14,7 +14,7 @@ import com.backend.model.JwtRequest;
 import com.backend.model.JwtResponse;
 import com.backend.model.User;
 //import com.backend.model.UserDto;
-import com.backend.service.JwtUserDetailsService;
+import com.backend.service.UserService;
 
 @RestController
 @CrossOrigin
@@ -27,14 +27,14 @@ public class JwtAuthenticationController {
 	private JwtTokenUtil jwtTokenUtil;
 
 	@Autowired
-	private JwtUserDetailsService userDetailsService;
+	private UserService userService;
 
 	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 
-		final UserDetails userDetails = userDetailsService.loadUserByUsername(authenticationRequest.getUsername());
+		final UserDetails userDetails = userService.loadUserByUsername(authenticationRequest.getUsername());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 
@@ -43,7 +43,12 @@ public class JwtAuthenticationController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
-		return ResponseEntity.ok(userDetailsService.save(user));
+		if (userService.checkExistingUser(user)) {
+    		throw new Exception("User already exists!");
+    	}
+		else {
+			return ResponseEntity.ok(userService.save(user));			
+		}		
 	}
 
 	private void authenticate(String username, String password) throws Exception {

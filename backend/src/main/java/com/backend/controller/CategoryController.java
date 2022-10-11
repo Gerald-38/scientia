@@ -49,7 +49,6 @@ public class CategoryController {
 	}
 	  
 	@PostMapping("/post")
-//  @RequestMapping(value = "/post", method = RequestMethod.POST)
 	public void createCategory(@RequestBody Category category)  {
 		categoryService.addCategory(category);        
 	}

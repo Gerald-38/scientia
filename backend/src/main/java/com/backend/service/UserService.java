@@ -15,14 +15,12 @@ import com.backend.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
-public class JwtUserDetailsService implements UserDetailsService {
+public class UserService implements UserDetailsService {
 	@Autowired
 	private UserRepository userRepository;
-	
-//	@Autowired
-//	private UserRepository userRepositoryRepository;
 
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
@@ -39,6 +37,11 @@ public class JwtUserDetailsService implements UserDetailsService {
 		}
 		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
 				new ArrayList<>());
+	}
+	
+	public boolean checkExistingUser(User user) {
+		Optional<User> foundUser = Optional.ofNullable(userRepository.findByUsername(user.getUsername()));
+		return foundUser.isPresent();
 	}
 
 	public User save(User user) {

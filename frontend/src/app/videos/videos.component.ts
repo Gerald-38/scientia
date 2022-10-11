@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AuthenticationService } from '../service/authentication-service';
 import { Category, CategoryService } from '../service/category.service';
-import { HttpClientService } from '../service/httpclient.service';
+import { UserService } from '../service/user.service';
 import { VideoService, Video } from '../service/video.service';
 
 @Component({
@@ -18,7 +18,7 @@ export class VideosComponent implements OnInit {
   choosenCategory!: string;
   imgRoot: string = "../../assets/images/";
 
-  constructor(private videoService: VideoService, private categoryService: CategoryService, private authentService: AuthenticationService) { }
+  constructor(private videoService: VideoService, private categoryService: CategoryService, private authentService: AuthenticationService, private userService: UserService) { }
 
   onSelectByCategory(): void {
     this.choixCatego = true;
@@ -39,5 +39,13 @@ export class VideosComponent implements OnInit {
     });
 
     this.authentService.saveUser()
+
+    let currentUser = sessionStorage.getItem('username');
+    if (currentUser) {
+      this.userService.getVideosByUserName(currentUser).subscribe(
+        // videos => (sessionStorage.setItem('videos', JSON.stringify(videos)))
+        videos => videos
+      )
+    }
   } 
 }

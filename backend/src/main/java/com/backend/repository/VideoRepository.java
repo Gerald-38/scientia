@@ -9,7 +9,6 @@ import com.backend.model.Video;
 
 
 @Repository
-public interface VideoRepository extends JpaRepository<Video, Long> {
-	
+public interface VideoRepository extends JpaRepository<Video, Long> {	
 	Optional<Video> findById(Long id);
 }

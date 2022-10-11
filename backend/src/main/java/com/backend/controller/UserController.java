@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.backend.model.User;
 import com.backend.model.Video;
 import com.backend.repository.UserRepository;
-import com.backend.service.JwtUserDetailsService;
+import com.backend.service.UserService;
 
 
 @RestController
@@ -32,24 +32,24 @@ public class UserController {
     private UserRepository userRepository;
     
     @Autowired
-    private JwtUserDetailsService jwtUserDetailService;    
+    private UserService userService;    
 	
   
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public List<User> getUserDaos(Model model) {
-        List<User> users = jwtUserDetailService.getUserRepositories();
+        List<User> users = userService.getUserRepositories();
         model.addAttribute("userRepositories", users);
         return users;
     }
     
     @GetMapping("/user")
     public ResponseEntity<User> getUSerByUsername(@RequestParam String username) {
-        return ResponseEntity.ok(jwtUserDetailService.getByUsername(username));
+        return ResponseEntity.ok(userService.getByUsername(username));
     }
     
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
-      Boolean isMovieDeleted = jwtUserDetailService.deleteById(id);
+      Boolean isMovieDeleted = userService.deleteById(id);
       
       if (!isMovieDeleted) {
         return "error";

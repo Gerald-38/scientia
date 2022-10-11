@@ -17,7 +17,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication-service';
-import { HttpClientService, User } from '../service/httpclient.service';
+import { UserService, User } from '../service/user.service';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
   @Input() error: string | null | undefined;
 
   constructor(private router: Router,
-    private loginservice: AuthenticationService, private httpClientService: HttpClientService) { }
+    private loginservice: AuthenticationService, private userService: UserService) { }
 
   ngOnInit() {
   }

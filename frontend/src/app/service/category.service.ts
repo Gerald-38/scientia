@@ -24,6 +24,12 @@ export class CategoryService {
     return this.httpClient.get<Category[]>(this.categoriesUrl);
   }
 
+  getCategoryById(id: string): Observable<Category> {
+    return this.httpClient.get<Category>(this.categoriesUrl + '/id?id=' + `${id}`).pipe(
+    map(category => category) // JSON
+    );
+  }
+
   public createCategory(category: any) {
     return this.httpClient.post<Category>(
       "http://localhost:8080/categories/post",
@@ -32,7 +38,7 @@ export class CategoryService {
   }
 
   updateCategory(category: Category): Observable<void> {
-    return this.httpClient.put<void>(this.categoriesUrl + `update/${category.id}`, category);
+    return this.httpClient.put<void>('http://localhost:8080/categories/' + `update/${category.id}`, category);
   }
 
   public deleteCategory(category: any) {
@@ -40,4 +46,6 @@ export class CategoryService {
       "http://localhost:8080/categories/delete" + "/" + category.id
     );
   }
+
+
 }

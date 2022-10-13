@@ -1,1 +1,17 @@
-<p>update-category works!</p>
+<div class="register">
+    <div class="register-form">        
+        <h2>Editer une catégorie</h2>
+        <form [formGroup]="updateFormCategory" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+              <label for="name">Nom de la catégorie :</label>              
+              <input formControlName="name" type="text" class="form-control" 
+              id="name" placeholder="catégorie" required>      
+            </div>
+            <td>
+                <button  [disabled]="" type="submit" class="btn btn-primary">Mettre à jour</button>
+                <button class="btn btn-danger" routerLink="/">Annuler</button>
+            </td>
+        </form>
+    </div>
+</div>  
+

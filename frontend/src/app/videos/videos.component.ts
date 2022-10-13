@@ -44,8 +44,25 @@ export class VideosComponent implements OnInit {
     if (currentUser) {
       this.userService.getVideosByUserName(currentUser).subscribe(
         // videos => (sessionStorage.setItem('videos', JSON.stringify(videos)))
-        videos => videos
+        videos => videos,
+        error => console.warn(error),
       )
     }
+
+    // let currentUser: any = sessionStorage.getItem('user');
+    // let currentUserOline = JSON.parse(currentUser);
+    // console.log(currentUserOline.videos);
+    // let currentUserVideos = currentUserOline.videos;
+    // if (currentUser && currentUserVideos !=0) {
+    //   this.userService.getVideosByUserName(currentUser).subscribe(
+    //     // videos => (sessionStorage.setItem('videos', JSON.stringify(videos)))
+    //     videos => videos,
+    //     error => console.warn(error),        
+    //   )      
+    // }
+
+
+
+
   } 
 }

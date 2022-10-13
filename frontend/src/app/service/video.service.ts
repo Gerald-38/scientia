@@ -45,16 +45,16 @@ export class VideoService {
     );
   }
 
-  deleteVideo(video:Video): Observable<void> {
-    return this.httpClient.delete<void>("http://localhost:8080/videos/delete/" + video.id)
-  }
-
   addVideoToProfile(video:Video) {        
     this.user = sessionStorage.getItem('user');
     let currentUser: User = JSON.parse(this.user); 
     let currentuserVideos = currentUser.videos;
     currentuserVideos.push(video);   
     this.userService.updateUser(currentUser).subscribe(user => user);
+  }
+
+  updateVideo(video: Video): Observable<void> {
+    return this.httpClient.put<void>('http://localhost:8080/videos/' + `update/${video.id}`, video);
   }
 
   removeVideoFromProfile(video:Video) {        
@@ -64,5 +64,10 @@ export class VideoService {
     let  videoIndex = currentuserVideos.findIndex((userVideo: Video) => video.id === userVideo.id)
     currentuserVideos.splice(videoIndex, 1);
     this.userService.updateUser(currentUser).subscribe(user => user);
+    sessionStorage.removeItem('userVideos');
+  }
+
+  deleteVideo(video:Video): Observable<void> {
+    return this.httpClient.delete<void>("http://localhost:8080/videos/delete/" + video.id)
   }
 }

@@ -53,7 +53,7 @@
             <tr *ngFor="let video of videos">
               <td>{{video.id}}</td>
               <td>{{video.title}}</td>
-              <td><button class="btn btn-success">Editer</button></td>
+              <td><button class="btn btn-success" routerLink="/update-video/{{video.id}}">Editer</button></td>
               <td><button class="btn btn-danger" (click)="deleteVideo(video)">Supprimer</button></td>
             </tr>
           </tbody>
@@ -85,7 +85,7 @@
             <tr *ngFor="let category of categories">
               <td>{{category.id}}</td>
               <td>{{category.name}}</td>
-              <td><button class="btn btn-success">Editer</button></td>
+              <td><button class="btn btn-success" routerLink="/update-category/{{category.id}}">Editer</button></td>
               <td><button class="btn btn-danger" (click)="deleteCategory(category)">Supprimer</button></td>
             </tr>
           </tbody>

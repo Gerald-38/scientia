@@ -28,6 +28,7 @@ import { GlobalDisplayComponent } from './global-display/global-display.componen
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { UpdateCategoryComponent } from './update-category/update-category.component';
+import { UpdateVideoComponent } from './update-video/update-video.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { UpdateCategoryComponent } from './update-category/update-category.compo
     GlobalDisplayComponent,
     AdminPanelComponent,
     AddCategoryComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    UpdateVideoComponent
 
   ],
   imports: [

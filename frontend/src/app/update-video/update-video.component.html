@@ -1,0 +1,33 @@
+<div  class="row-content">
+    <h1>Mise à jour des données sur la video</h1>
+    <form [formGroup]="updateFormVideo" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="title">Titre :</label>
+        <input formControlName="title" type="text" class="form-control" id="title"  placeholder="Entrez le titre">
+    </div>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <input formControlName="description" type="text" class="form-control" id="description" placeholder="Entrez la description">
+    </div>
+    <div class="form-group">
+        <label for="ref" *ngIf="videoToEdit" >image actuelle : {{videoToEdit.image}} </label>
+        <input  type="file" class="form-control" id="image" placeholder="image" [(ngModel)]="videoImage" [ngModelOptions]="{standalone: true}">
+    </div>
+    <div class="form-group">
+        <label for="duration">Durée</label>
+        <input formControlName="duration" type="text" class="form-control" id="duration">
+    </div>  
+    <label for="category" *ngIf="videoToEdit">Categorie actuelle : {{videoToEdit.categories[0].name}}  </label>
+    <div class="form-group">
+        <select  id="categories" name="categories" [(ngModel)]="catego[0].id" [ngModelOptions]="{standalone: true}">
+            <option value="">--categorie--</option>
+            <option *ngFor="let category of videoCategories" value={{category.id}} >{{category.name}}</option>
+        </select>
+    </div>
+    <td>
+        <button [disabled]="" type="submit" class="btn btn-primary">Mettre à jour</button>
+        <button class="btn btn-danger" routerLink="/">Annuler</button>
+    </td>
+    </form>   
+</div>
+ 

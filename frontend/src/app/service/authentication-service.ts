@@ -73,6 +73,8 @@ export class AuthenticationService  {
     sessionStorage.removeItem("user");
     sessionStorage.removeItem("video");
     sessionStorage.removeItem("videos");
+    sessionStorage.removeItem("userVideos");
+    sessionStorage.removeItem("users");
   }
 }
 

@@ -35,7 +35,7 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
     // console.log ('Videos du User: ' + userVideos);
     // console.log ('Videos du User: ' + userVideos[0]);
     // console.log('Id de la video: ' + id);
-    if (userVideos.indexOf(parseInt(id)) > -1) {
+    if (userVideos && userVideos.indexOf(parseInt(id)) > -1) {
       this.isAdded = true
     }
     else {

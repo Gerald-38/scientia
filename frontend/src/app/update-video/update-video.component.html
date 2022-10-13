@@ -17,6 +17,10 @@
         <label for="duration">Durée</label>
         <input formControlName="duration" type="text" class="form-control" id="duration">
     </div>  
+    <div class="form-group">
+        <label for="location">Lien</label>
+        <input formControlName="location" type="text" class="form-control" id="location">
+    </div>  
     <label for="category" *ngIf="videoToEdit">Categorie actuelle : {{videoToEdit.categories[0].name}}  </label>
     <div class="form-group">
         <select  id="categories" name="categories" [(ngModel)]="catego[0].id" [ngModelOptions]="{standalone: true}">

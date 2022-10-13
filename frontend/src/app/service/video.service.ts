@@ -11,6 +11,7 @@ export class Video {
     public description: string,
     public image: string | undefined,
     public duration: number,
+    public location: string,
     public categories = [{id,name: ''}],
   ) {}
 }

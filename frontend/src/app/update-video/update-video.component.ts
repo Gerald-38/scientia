@@ -61,9 +61,11 @@ export class UpdateVideoComponent implements OnInit {
           Validators.required
         ]),
         image: new FormControl('', [
-          Validators.required,
         ]),
         duration: new FormControl('', [
+          Validators.required
+        ]),
+        location: new FormControl('', [
           Validators.required
         ]),
         categories: new FormControl([{'id':''}], [
@@ -78,17 +80,21 @@ export class UpdateVideoComponent implements OnInit {
   get description() { return this.updateFormVideo.get('description'); }
   get image() { return this.updateFormVideo.get('image'); }
   get duration() { return this.updateFormVideo.get('duration'); }
+  get location() { return this.updateFormVideo.get('location'); }
   get categories() { return this.updateFormVideo.get('categories'); }
 
   onSubmit(){
     let video : Video;    
     video = this.updateFormVideo.value;
     video.id = this.id;
-    video.categories[0].id = this.catego[0].id
+    
+    if(this.catego[0].id) {
+      video.categories[0].id = this.catego[0].id
+    }
+
     if(this.videoImage) {
       video.image = this.videoImage.split('C:\\fakepath\\').pop();
-    }
-    
+    }   
 
     /**
      * @todo observer methods next and error 

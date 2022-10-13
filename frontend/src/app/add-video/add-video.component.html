@@ -33,6 +33,11 @@
         <input  type="text" class="form-control" 
         id="duree" name="duree" aria-describedby="emailHelp" placeholder="Duree" [(ngModel)]="video.duration">      
     </div>
+    <div class="form-group">
+        <label for="location">Lien :</label>
+        <input  type="text" class="form-control" 
+        id="location" name="location" placeholder="Lien" [(ngModel)]="video.location">      
+    </div>
     <label for="category">Choisissez une catégorie:</label>
     <div class="form-group">
         <select  id="category" name="category" [(ngModel)]="video.categories[0].id">

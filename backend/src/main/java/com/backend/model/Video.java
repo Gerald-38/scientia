@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.validator.constraints.URL;
+
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
@@ -39,7 +41,11 @@ public class Video {
     private String image;
     
     @Column
-    private Integer duration;  
+    private Integer duration; 
+    
+    @Column
+//    @URL
+	private String location;
     
 //  @JsonManagedReference 
 	@ManyToMany
@@ -63,13 +69,14 @@ public class Video {
 		// TODO Auto-generated constructor stub
 	}	
 	
-	public Video(long id, String title, String description, String image, Integer duration, List<Category> categories, List<User> users) {
+	public Video(long id, String title, String description, String image, Integer duration, String location, List<Category> categories, List<User> users) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.description = description;
 		this.image = image;
 		this.duration = duration;
+		this.location = location;
 		this.categories = categories;
 		this.users = users;
 	}
@@ -113,6 +120,16 @@ public class Video {
 
 	public void setDuration(Integer duration) {
 		this.duration = duration;
+	}
+	
+	
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	public List<Category> getCategories() {

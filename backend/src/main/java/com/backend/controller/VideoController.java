@@ -71,6 +71,7 @@ public class VideoController {
         currentVideo.setDescription(video.getDescription());
         currentVideo.setImage(video.getImage());
         currentVideo.setDuration(video.getDuration());
+        currentVideo.setLocation(video.getLocation());      
         currentVideo.setCategories(video.getCategories());
         currentVideo = videoRepository.save(video);
         return ResponseEntity.ok(currentVideo);

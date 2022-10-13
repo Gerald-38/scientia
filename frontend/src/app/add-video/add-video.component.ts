@@ -16,12 +16,14 @@ export class AddVideoComponent implements OnInit {
     "description": '',
     "image": '',
     "duration": 0,
+    "location": '',
     "categories": [
-        {
-            "id": '',
-            "name": ''
-        }
-    ]
+      {
+        "id": '',
+        "name": ''
+      }
+    ],
+    
   }
 
   imgRoot: string = "../../assets/images/";
@@ -50,6 +52,7 @@ export class AddVideoComponent implements OnInit {
       "description": this.video.description,
       "image": this.video.image,
       "duration": "this.video.duration",
+      "location": "this.video.location",
       "categories": [
           {
               "id": this.video.categories[0].id

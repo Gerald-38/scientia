@@ -29,6 +29,8 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { UpdateCategoryComponent } from './update-category/update-category.component';
 import { UpdateVideoComponent } from './update-video/update-video.component';
+import { YouTubePlayerModule } from '@angular/youtube-player';
+import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 
 
 @NgModule({
@@ -48,7 +50,8 @@ import { UpdateVideoComponent } from './update-video/update-video.component';
     AdminPanelComponent,
     AddCategoryComponent,
     UpdateCategoryComponent,
-    UpdateVideoComponent
+    UpdateVideoComponent,
+    VideoViewerComponent
 
   ],
   imports: [
@@ -64,6 +67,7 @@ import { UpdateVideoComponent } from './update-video/update-video.component';
     // MatTooltipModule,
     // MatToolbarModule,
     HttpClientModule,
+    YouTubePlayerModule,
     // MatButtonModule
 
   ],

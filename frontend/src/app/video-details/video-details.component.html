@@ -17,5 +17,6 @@
 <p (click)="onAddVideo(video)" *ngIf="(isAdded) == false"><button>Ajouter à ma liste</button></p>
 <p (click)="onRemoveVideo(video)" *ngIf="(isAdded)"><button>Retirer de ma liste</button></p>
 <p *ngIf="(isAdded)" class="video-added-message">Video ajouée à ma liste</p>
+<button *ngIf="video" class="btn btn-success" routerLink="/video-viewer/{{ video.id }}">Regarder</button>
 <a routerLink="/videos" class="nav-link">Retour Catalogue</a>
  

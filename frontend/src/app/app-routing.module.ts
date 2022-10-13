@@ -12,6 +12,7 @@ import { UpdateVideoComponent } from './update-video/update-video.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 // import { UsersComponent } from './users/users.component';
 import { VideoDetailsComponent } from './video-details/video-details.component';
+import { VideoViewerComponent } from './video-viewer/video-viewer.component';
 import { VideosComponent } from './videos/videos.component';
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'add-category', component: AddCategoryComponent, canActivate:[AuthGaurdService] },
   { path: 'update-category/:id', component: UpdateCategoryComponent, canActivate:[AuthGaurdService] },
   { path: 'update-video/:id', component: UpdateVideoComponent, canActivate:[AuthGaurdService] },
+  { path: 'video-viewer/:id', component: VideoViewerComponent, canActivate:[AuthGaurdService] },
 
 ];
 

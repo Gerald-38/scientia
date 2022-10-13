@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { map } from 'rxjs';
 import { UserService, User } from '../service/user.service';
 import { VideoService, Video } from '../service/video.service';
+import { YouTubePlayer } from '@angular/youtube-player';
 
 @Component({
   selector: 'app-video-details',

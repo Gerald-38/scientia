@@ -1,6 +1,6 @@
-<h1>Titre du documentaire : </h1>
+<h1 *ngIf="video">{{ video.title }} </h1>
 <div *ngIf="video">
-    <p > {{ video.title }} </p>
+    <!-- <p > {{ video.title }} </p> -->
     <p > {{ video.description }} </p>
     <p> {{video.categories[0].name}} </p>
     <p *ngIf="video.image">

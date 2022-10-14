@@ -6,7 +6,7 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
+              <th class="user-id">ID</th>
               <th>Nom</th>
               <th>Role</th>
               <th>Editer</th>
@@ -60,9 +60,9 @@
         </table>
       </div> <!--/.tWrap__body-->
     </div> <!--/.tWrap-->
+    <button class="btn btn-primary add-btn" routerLink="/add-video">Ajouter une video</button>
 </div> <!--/.container--> 
-<h3>Ajout d'une video</h3>
-<button mat-raised-button color="primary" routerLink="/add-video">Ajouter une video</button>
+
 
 <h2>Catégories</h2>
 <div class="container"> <!--provides a wrapper for testing the scroll-->
@@ -89,9 +89,9 @@
               <td><button class="btn btn-danger" (click)="deleteCategory(category)">Supprimer</button></td>
             </tr>
           </tbody>
-        </table>
-      </div> <!--/.tWrap__body-->
+        </table>        
+      </div> <!--/.tWrap__body-->               
     </div> <!--/.tWrap-->
+    <button class="btn btn-primary add-btn" routerLink="/add-category">Ajouter une catégorie</button>       
 </div> <!--/.container--> 
-<h3>Ajout d'une catégorie</h3>
-<button mat-raised-button color="primary" routerLink="/add-category">Ajouter une catégorie</button>
+

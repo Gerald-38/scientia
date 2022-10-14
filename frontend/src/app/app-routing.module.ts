@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: 'add-category', component: AddCategoryComponent, canActivate:[AuthGaurdService] },
   { path: 'update-category/:id', component: UpdateCategoryComponent, canActivate:[AuthGaurdService] },
   { path: 'update-video/:id', component: UpdateVideoComponent, canActivate:[AuthGaurdService] },
-  { path: 'video-viewer/:id', component: VideoViewerComponent, canActivate:[AuthGaurdService] },
+  { path: 'video-viewer/:videoId', component: VideoViewerComponent, canActivate:[AuthGaurdService] },
 
 ];
 

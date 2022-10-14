@@ -28,7 +28,7 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-    @Column
+    @Column(name = "title", nullable = false, unique = true)
     @NotBlank
     private String title;
     

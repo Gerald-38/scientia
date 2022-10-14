@@ -34,6 +34,11 @@ public class CategoryService {
     	return true; 
     }
     
+	public boolean checkExistingCategory(Category category) {
+		Optional<Category> foundCategory = categoryRepository.findByName(category.getName());
+		return foundCategory.isPresent();
+	}
+    
     public Boolean deleteById(Long id) {
         boolean isCategoryInDB;
         

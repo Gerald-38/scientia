@@ -21,7 +21,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 	
-    @Column
+    @Column(name = "name", nullable = false, unique = true)
     private String name;
     
     @JsonBackReference

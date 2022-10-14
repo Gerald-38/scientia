@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.backend.model.User;
 import com.backend.model.Video;
 import com.backend.repository.VideoRepository;
 import com.backend.service.VideoService;
@@ -50,10 +51,15 @@ public class VideoController {
     }
     
     @PostMapping("/post")
-    public void createMovie(@RequestBody Video video)  {
-    	videoService.addVideo(video);        
-    }
-    
+    public ResponseEntity<?> createMovie(@RequestBody Video video) throws Exception  {
+		if (videoService.checkExistingVideo(video)) {
+    		throw new Exception("Video already exists!");
+    	}
+		else {
+			return ResponseEntity.ok(videoService.addVideo(video));			
+		}	
+    } 
+
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable("id") Long id) {
       Boolean isMovieDeleted = videoService.deleteById(id);

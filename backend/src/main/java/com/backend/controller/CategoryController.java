@@ -50,8 +50,13 @@ public class CategoryController {
 	}
 	  
 	@PostMapping("/post")
-	public void createCategory(@RequestBody Category category)  {
-		categoryService.addCategory(category);        
+	public ResponseEntity<?> createCategory(@RequestBody Category category) throws Exception  {		  
+		if (categoryService.checkExistingCategory(category)) {
+    		throw new Exception("Category already exists!");
+    	}
+		else {
+			return ResponseEntity.ok(categoryService.addCategory(category));			
+		}
 	}
 	
     @PutMapping("/update/{id}")

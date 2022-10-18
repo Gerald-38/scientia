@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -22,6 +24,8 @@ public class Category {
     private long id;
 	
     @Column(name = "name", nullable = false, unique = true)
+    @NotBlank(message="Name must not be empty")
+    @Size(min=2, max=40)
     private String name;
     
     @JsonBackReference

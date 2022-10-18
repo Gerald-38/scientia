@@ -1,7 +1,14 @@
-<youtube-player
-    [playerVars]="playerConfig"
-    [videoId]=videoParam
-></youtube-player>
+<h1>Ma video</h1>
+<div class="container">
+    <div class="youtube-component">
+        <youtube-player
+        [playerVars]="playerConfig"
+        [videoId]=videoParam
+        [width]=videoWidth
+        [height]=videoHeight
+        ></youtube-player>
+    </div>
+</div>
 
 <!-- <youtube-player
 [playerVars]="playerConfig"

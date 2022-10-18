@@ -28,10 +28,10 @@ import { UserService, User } from '../service/user.service';
 export class LoginComponent implements OnInit {
 
   user!: User;
-
   username = ''
   password = ''
   invalidLogin = false
+  message!: string;
   // public showSpinner: boolean = true;
   
   @Input() error: string | null | undefined;
@@ -51,6 +51,8 @@ export class LoginComponent implements OnInit {
       error => {
         this.invalidLogin = true
         this.error = error.message;
+        this.message = "Erreur dans la saisie de l'identifiant ou du mot de passe. Veuillez réessayer"
+
       }      
     )
     );

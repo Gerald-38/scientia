@@ -6,7 +6,7 @@
         <table>
           <thead>
             <tr>
-              <th class="user-id">ID</th>
+              <!-- <th class="user-id">ID</th> -->
               <th>Nom</th>
               <th>Role</th>
               <th>Editer</th>
@@ -19,7 +19,6 @@
         <table>
           <tbody>
             <tr *ngFor="let user of users">
-              <td>{{user.id}}</td>
               <td>{{user.username}}</td>
               <td>{{user.role}}</td>
               <td><button class="btn btn-success">Editer</button></td>
@@ -39,7 +38,7 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
+              <!-- <th>ID</th> -->
               <th>Titre</th>
               <th>Editer</th>
               <th>Supprimer</th>
@@ -51,7 +50,7 @@
         <table>
           <tbody>
             <tr *ngFor="let video of videos">
-              <td>{{video.id}}</td>
+              <!-- <td>{{video.id}}</td> -->
               <td>{{video.title}}</td>
               <td><button class="btn btn-success" routerLink="/update-video/{{video.id}}">Editer</button></td>
               <td><button class="btn btn-danger" (click)="deleteVideo(video)">Supprimer</button></td>
@@ -71,7 +70,7 @@
         <table>
           <thead>
             <tr>
-              <th>ID</th>
+              <!-- <th>ID</th> -->
               <th>Nom</th>
               <th>Editer</th>
               <th>Supprimer</th>
@@ -83,7 +82,6 @@
         <table>
           <tbody>
             <tr *ngFor="let category of categories">
-              <td>{{category.id}}</td>
               <td>{{category.name}}</td>
               <td><button class="btn btn-success" routerLink="/update-category/{{category.id}}">Editer</button></td>
               <td><button class="btn btn-danger" (click)="deleteCategory(category)">Supprimer</button></td>

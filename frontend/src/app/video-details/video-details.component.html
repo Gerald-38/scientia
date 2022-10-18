@@ -1,22 +1,15 @@
 <h1 *ngIf="video">{{ video.title }} </h1>
-<div *ngIf="video">
-    <!-- <p > {{ video.title }} </p> -->
-    <p > {{ video.description }} </p>
-    <p> {{video.categories[0].name}} </p>
-    <p *ngIf="video.image">
-        <img src="{{imgRoot + video.image}}" alt="image de la video" class="video-image">
-    </p>
-    <p>Durée : {{video.duration}}</p>
-    <a href="{{video.location}}" target="_blank">
-        <p>Lien :  {{video.location}}</p>
-    </a>    
-    <!-- <p>Catégorie : {{video.categories[0].name}} </p> -->
+<div class="container" *ngIf="video">
+    <img *ngIf="video.image" src="{{imgRoot + video.image}}" alt="image de la video" class="video-image">
+    <div class="video-details">
+        <p class="video-description"> {{ video.description }} </p>
+        <p class="video-category">Catégorie : {{video.categories[0].name}} </p>
+        <p class="video-duration">Durée : {{video.duration}} minutes</p>
+        <button class="btn btn-primary" (click)="onAddVideo(video)" *ngIf="(isAdded) == false">Ajouter à ma liste</button>
+        <button class="btn btn-warning" (click)="onRemoveVideo(video)" *ngIf="(isAdded)">Retirer de ma liste</button>        
+        <button *ngIf="video" class="btn btn-success" routerLink="/video-viewer/{{ video.location }}">Regarder</button>
+        <button class="btn btn-danger" routerLink="/videos">Retour Catalogue</button>
+        <p *ngIf="(isAdded)" class="video-added-message">Video ajouée à ma liste</p>
+    </div>
 </div>
-<!-- <p><button class="delete" (click)="onDeleteVideo(video)">Supprimer la video</button></p> -->
-<p class="delete" *ngIf="(message)">{{message}} </p>
-<p (click)="onAddVideo(video)" *ngIf="(isAdded) == false"><button>Ajouter à ma liste</button></p>
-<p (click)="onRemoveVideo(video)" *ngIf="(isAdded)"><button>Retirer de ma liste</button></p>
-<p *ngIf="(isAdded)" class="video-added-message">Video ajouée à ma liste</p>
-<button *ngIf="video" class="btn btn-success" routerLink="/video-viewer/{{ video.location }}">Regarder</button>
-<a routerLink="/videos" class="nav-link">Retour Catalogue</a>
  

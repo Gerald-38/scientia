@@ -34,9 +34,9 @@
         id="duree" name="duree" aria-describedby="emailHelp" placeholder="Duree" [(ngModel)]="video.duration">      
     </div>
     <div class="form-group">
-        <label for="location">Lien :</label>
+        <label for="location">ID Video :</label>
         <input  type="text" class="form-control" 
-        id="location" name="location" placeholder="Lien" [(ngModel)]="video.location">      
+        id="location" name="location" placeholder="ID Video" [(ngModel)]="video.location">      
     </div>
     <label for="category">Choisissez une catégorie:</label>
     <div class="form-group">
@@ -46,4 +46,6 @@
         </select>
     </div>
     <button  class="btn btn-primary" (click)="saveVideo()">Add</button>
+    <button class="btn btn-danger" routerLink="/">Annuler</button>
+    <p class="message" *ngIf="message"> {{this.message}} </p>
 </form>

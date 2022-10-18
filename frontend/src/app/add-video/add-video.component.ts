@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Category, CategoryService } from '../service/category.service';
@@ -30,11 +30,14 @@ export class AddVideoComponent implements OnInit {
 
   categories: Category[] | any;
 
+  @Input() error: string | null | undefined;
+
   constructor(
     private videoService: VideoService,
     private categoryService: CategoryService,
     private router: Router) { }
     public image!: string;
+    message!: string;
 
 
   ngOnInit(): void {
@@ -45,7 +48,10 @@ export class AddVideoComponent implements OnInit {
   
   saveVideo(): void {
 
-    this.video.image = this.image.split('C:\\fakepath\\').pop();
+    if(this.image) {
+      this.video.image = this.image.split('C:\\fakepath\\').pop();
+    }
+    
   
     const video = {
       "title": this.video.title,
@@ -62,6 +68,10 @@ export class AddVideoComponent implements OnInit {
     this.videoService.createVideo(this.video).subscribe(video => {
       alert("Video AJoutée");
       this.router.navigate(['/videos'])
+    },
+    error => {
+      this.error = error.message;
+      this.message = "veuillez renseigner tous les champs de saisie"
     });
   }  
 }

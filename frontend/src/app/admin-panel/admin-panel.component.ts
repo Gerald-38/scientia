@@ -3,8 +3,6 @@ import { Router } from "@angular/router";
 import { Category, CategoryService } from "../service/category.service";
 import { UserService, User } from "../service/user.service";
 import { Video, VideoService } from "../service/video.service";
-// import { MatTableModule } from '@angular/material/table' 
-// import { HttpClientService, User } from "../service/httpclient.service";
 
 @Component({
   selector: 'app-admin-panel',
@@ -40,9 +38,7 @@ export class AdminPanelComponent implements OnInit {
   });
 
   this.videoService.getVideos().subscribe(videos => {
-    // this.videos = videos
-    sessionStorage.setItem('videos', JSON.stringify(videos))
-    // this.videos = console.log(data)     
+    sessionStorage.setItem('videos', JSON.stringify(videos))   
   });
 
   this.userService.getUsers().subscribe(users => {
@@ -56,7 +52,7 @@ export class AdminPanelComponent implements OnInit {
     if (confirm('Voulez-vous vraiment supprimer cet Utilisateur ?')) {
       this.userService.deleteUser(user).subscribe(
         () => { 
-          console.log('utilisateur supprimé')
+          alert('Utilisateur supprimé')
           location.reload();
         }
       );
@@ -79,7 +75,7 @@ export class AdminPanelComponent implements OnInit {
     else {
       this.categoryService.deleteCategory(category).subscribe(
         () => { 
-          console.log('catégorie supprimée')
+          alert('Catégorie supprimée')
           location.reload();
         }
       );
@@ -103,11 +99,9 @@ export class AdminPanelComponent implements OnInit {
       alert('impossible  de supprimer cette videos, elle est utilisée')
     }
     else {
-      alert('ok')
       this.videoService.deleteVideo(video).subscribe(
-        () => {       
-          // this.router.navigate(['/videos']); 
-          console.log('Vidéo supprimée');
+        () => {     
+          alert('Vidéo supprimée')
           location.reload();
         }
       )

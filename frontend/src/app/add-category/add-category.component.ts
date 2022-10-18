@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Category, CategoryService } from '../service/category.service';
 import { Video, VideoService } from '../service/video.service';
@@ -11,6 +11,9 @@ import { Video, VideoService } from '../service/video.service';
 export class AddCategoryComponent implements OnInit {
   category: Category = new Category("", "");
   videos: Video[] | any;
+  message!: string;
+
+  @Input() error: string | null | undefined;
 
   constructor(private categorySercive: CategoryService, private videoService: VideoService ,private router: Router) { }
 
@@ -23,6 +26,10 @@ export class AddCategoryComponent implements OnInit {
     this.categorySercive.createCategory(this.category).subscribe(data => {
       alert("La catégorie a bien été créée!");
       this.router.navigate([''])
+      },
+      error => {
+        this.error = error.message;
+        this.message = "Veuillez saisir un nom de catégorie comportant au moins 2 lettres"
       });
   }
 

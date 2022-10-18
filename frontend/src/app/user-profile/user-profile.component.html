@@ -1,7 +1,10 @@
 <h1>Bienvenue,  {{userName}} !!!</h1>
 <h2>Mes videos</h2>
-<div class="user-videos" *ngFor="let user of users">
-    <div class="user-video-title" *ngIf="user.username === userName">
-        <h3 *ngFor="let video of user.videos" routerLink="/video/{{ video.id }}"> {{video.title}} </h3>
-    </div>    
+<div class="container">
+    <div class="user-videos" *ngFor="let user of users">
+        <ul class="user-video-title" *ngIf="user.username === userName">
+            <li class="video-title" *ngFor="let video of user.videos" routerLink="/video/{{ video.id }}"> {{video.title}} </li>
+            <li *ngIf="(user.videos.length) == 0" class="no-video">Aucune video ajoutée à la liste</li>
+        </ul>    
+    </div>
 </div>

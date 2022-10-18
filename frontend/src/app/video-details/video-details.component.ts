@@ -14,7 +14,7 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
   @Output() onAdd: EventEmitter<Video> = new EventEmitter();
   user!: User | any;
   video!: Video | any;
-  message!: string;
+  // message!: string;
   imgRoot: string = "../../assets/images/";
   isAdded: boolean = false;
   currentVideo: Video | any;
@@ -31,11 +31,7 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
     }
 
     let userVideoChoice: any = sessionStorage.getItem('userVideos');
-    let userVideos = JSON.parse(userVideoChoice)    
-    // console.log ('Videos du User: ' + JSON.parse(userVideoChoice));
-    // console.log ('Videos du User: ' + userVideos);
-    // console.log ('Videos du User: ' + userVideos[0]);
-    // console.log('Id de la video: ' + id);
+    let userVideos = JSON.parse(userVideoChoice)
     if (userVideos && userVideos.indexOf(parseInt(id)) > -1) {
       this.isAdded = true
     }
@@ -56,20 +52,18 @@ export class VideoDetailsComponent implements OnInit, OnDestroy {
     this.isAdded = false;
   }
 
-  onDeleteVideo(video: Video) {
-    if (confirm('Voulez-vous vraiment supprimer ce contenu ?')) {
-      // let title: string = video.title;     
-      this.videoService.deleteVideo(video).subscribe(
-        () => {       
-          this.router.navigate(['/videos']); 
+  // onDeleteVideo(video: Video) {
+  //   if (confirm('Voulez-vous vraiment supprimer ce contenu ?')) {
+  //     // let title: string = video.title;     
+  //     this.videoService.deleteVideo(video).subscribe(
+  //       () => {       
+  //         this.router.navigate(['/videos']); 
           // location.reload();
-        }
-      )
-    }    
+  //       }
+  //     )
+  //   }    
+  // }
+
+  ngOnDestroy(): void {  
   }
-
-  ngOnDestroy(): void {   
-
-  }
-
 }

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Category, CategoryService } from '../service/category.service';
 import { VideoService, Video } from '../service/video.service';
@@ -15,7 +14,7 @@ export class AddVideoComponent implements OnInit {
     "title": '',
     "description": '',
     "image": '',
-    "duration": 0,
+    "duration": '',
     "location": '',
     "categories": [
       {
@@ -57,21 +56,27 @@ export class AddVideoComponent implements OnInit {
       "title": this.video.title,
       "description": this.video.description,
       "image": this.video.image,
-      "duration": "this.video.duration",
-      "location": "this.video.location",
+      "duration": this.video.duration,
+      "location": this.video.location,
       "categories": [
           {
               "id": this.video.categories[0].id
           }
       ]
     }
-    this.videoService.createVideo(this.video).subscribe(video => {
-      alert("Video AJoutée");
-      this.router.navigate(['/videos'])
-    },
-    error => {
-      this.error = error.message;
-      this.message = "veuillez renseigner tous les champs de saisie"
-    });
+
+    if (video.title && video.description && video.image && video.duration && video.location && video.categories[0].id) {      
+      this.videoService.createVideo(this.video).subscribe(video => {
+        alert("Video AJoutée");
+        this.router.navigate(['/videos'])
+      },
+      error => {
+        this.error = error.message;
+        this.message = error.error.message; // L'erreur précise si le titre de la video est existant
+      });
+    }
+    else {
+      this.message = "tous les champs doivent être renseignés !!!"
+    }
   }  
 }

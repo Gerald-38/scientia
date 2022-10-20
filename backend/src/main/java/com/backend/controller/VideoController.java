@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.backend.model.User;
 import com.backend.model.Video;
 import com.backend.repository.VideoRepository;
 import com.backend.service.VideoService;
@@ -42,9 +41,8 @@ public class VideoController {
         List<Video> videos = videoService.getVideoDaos();
         model.addAttribute("videoDaos", videos);
         return videos;
-    }
-    
-//    @RequestMapping(value = "get/id", method = RequestMethod.GET)
+    }    
+
     @GetMapping("get/id")
     public ResponseEntity<Optional<Video>> getVideoById(@RequestParam Long id) {
         return ResponseEntity.ok(videoService.getById(id));
@@ -53,7 +51,7 @@ public class VideoController {
     @PostMapping("/post")
     public ResponseEntity<?> createMovie(@RequestBody Video video) throws Exception  {
 		if (videoService.checkExistingVideo(video)) {
-    		throw new Exception("Video already exists!");
+    		throw new Exception("Cette video existe déjà !!!");
     	}
 		else {
 			return ResponseEntity.ok(videoService.addVideo(video));			
@@ -81,8 +79,5 @@ public class VideoController {
         currentVideo.setCategories(video.getCategories());
         currentVideo = videoRepository.save(video);
         return ResponseEntity.ok(currentVideo);
-    }    
-  
-
-
+    }
 }

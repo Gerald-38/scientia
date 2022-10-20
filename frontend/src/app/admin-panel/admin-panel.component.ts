@@ -87,7 +87,6 @@ export class AdminPanelComponent implements OnInit {
     let myUsers: Video[] | any= sessionStorage.getItem('users');
     let allUsers = JSON.parse(myUsers);
     let countVideos = 0;
-    console.log(allUsers)
     for (let user of allUsers) {
       for (let videoused of user.videos){
         if(videoused.id == parseInt(video.id)) {

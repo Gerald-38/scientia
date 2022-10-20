@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.backend.model.Category;
-import com.backend.model.Video;
 import com.backend.repository.CategoryRepository;
 
 
@@ -56,5 +55,4 @@ public class CategoryService {
           return false;
         }
     }
-
 }

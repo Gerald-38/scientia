@@ -3,12 +3,6 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { UserService, User } from "./user.service";
 
-// export class User {
-//   constructor(public status: string) {}
-// }
-
-// user: User;
-
 @Injectable({
   providedIn: "root"
 })
@@ -16,8 +10,9 @@ export class AuthenticationService  {
   
 
   constructor(private httpClient: HttpClient, private userService: UserService) {}
-// Provide username and password for authentication, and once authentication is successful, 
-//store JWT token in session
+
+//Fournit un nom d'utilisateur et un mot de passe pour l'authentification, et une fois l'authentification réussie, 
+//stocke JWT token dans la session
   authenticate(username: string, password: any) {
     return this.httpClient
       .post<any>("http://localhost:8080/authenticate", { username, password })
@@ -34,10 +29,10 @@ export class AuthenticationService  {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem("username");
-    // console.log(!(user === null));
     return !(user === null);
   }
 
+  // Récupératin du user par son username et stockage du rôle dans la session (pour ajouter ou non la console d'admin dans le Header Menu)
   saveUserRole() {
     let currentuser: string | null = sessionStorage.getItem("username")
     if (currentuser) {
@@ -66,6 +61,7 @@ export class AuthenticationService  {
     }
   }
 
+  // A la déconnexion, le session storage est purgé
   logOut() {
     sessionStorage.removeItem("username");
     sessionStorage.removeItem("token");

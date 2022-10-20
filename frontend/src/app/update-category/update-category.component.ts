@@ -55,11 +55,8 @@ export class UpdateCategoryComponent implements OnInit {
      */
     this.categoryService.updateCategory(category).subscribe(
       () => {
-        this.router.navigate(['/'], { queryParams: { message: 'mise à jour réalisée avec succès!' } });
+        this.router.navigate(['/']);
       }
     )
   }
-
-
-
 }

@@ -13,7 +13,6 @@ import com.backend.config.JwtTokenUtil;
 import com.backend.model.JwtRequest;
 import com.backend.model.JwtResponse;
 import com.backend.model.User;
-//import com.backend.model.UserDto;
 import com.backend.service.UserService;
 
 @RestController
@@ -44,7 +43,10 @@ public class JwtAuthenticationController {
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody User user) throws Exception {
 		if (userService.checkExistingUser(user)) {
-    		throw new Exception("User already exists!");
+    		throw new Exception("Cet utilisateur est déjà inscrit!");
+    	}
+		if (user.getUsername().length() < 2) {
+    		throw new Exception("Veuillez entrer un pseudo au moins égal à 2 lettres !!!");
     	}
 		else {
 			return ResponseEntity.ok(userService.save(user));			

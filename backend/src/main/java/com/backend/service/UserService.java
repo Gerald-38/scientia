@@ -8,9 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.backend.model.User;
-//import com.backend.model.UserDto;
 import com.backend.repository.UserRepository;
-//import com.backend.repository.UserRepository;
 
 
 import java.util.ArrayList;

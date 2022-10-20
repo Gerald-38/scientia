@@ -1,5 +1,6 @@
+<h1>Bienvenue ! Connectez vous ou créez un compte !</h1>
+<p class="message">{{this.message}} </p>
 <div class="connection">
-    <h1>Bienvenue ! Connectez vous ou créez un compte !</h1>
     <div class="connection-form">
         <h2>Connexion</h2>
         <form >
@@ -12,13 +13,7 @@
                 <label for="password">Mot de passe</label>
                 <input type="password" class="form-control"  id="password" name="password" placeholder="Mot de passe" [(ngModel)]="password" required>
             </div>
-            <button  class="btn btn-primary" (click)="checkLogin()">Connexion</button>
-            <p class="error-message">{{this.message}} </p>
+            <button  class="btn btn-primary" (click)="checkLogin()">Connexion</button>            
         </form>
     </div>
 </div>
-
-
-
-
-

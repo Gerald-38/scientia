@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { AuthenticationService } from '../service/authentication-service';
 import { Category, CategoryService } from '../service/category.service';
 import { UserService } from '../service/user.service';
@@ -20,18 +19,9 @@ export class VideosComponent implements OnInit {
 
   constructor(private videoService: VideoService, private categoryService: CategoryService, private authentService: AuthenticationService, private userService: UserService) { }
 
-  onSelectByCategory(): void {
-    this.choixCatego = true;
-  }
-
-  onReload() {
-    window.location.reload()
-  }
-
   ngOnInit(): void {
     this.videoService.getVideos().subscribe(data => {
-      this.videos = data
-      // this.videos = console.log(data)     
+      this.videos = data  
     });
 
     this.categoryService.getCategories().subscribe(data => {
@@ -43,26 +33,17 @@ export class VideosComponent implements OnInit {
     let currentUser = sessionStorage.getItem('username');
     if (currentUser) {
       this.userService.getVideosByUserName(currentUser).subscribe(
-        // videos => (sessionStorage.setItem('videos', JSON.stringify(videos)))
         videos => videos,
         error => console.warn(error),
       )
     }
-
-    // let currentUser: any = sessionStorage.getItem('user');
-    // let currentUserOline = JSON.parse(currentUser);
-    // console.log(currentUserOline.videos);
-    // let currentUserVideos = currentUserOline.videos;
-    // if (currentUser && currentUserVideos !=0) {
-    //   this.userService.getVideosByUserName(currentUser).subscribe(
-    //     // videos => (sessionStorage.setItem('videos', JSON.stringify(videos)))
-    //     videos => videos,
-    //     error => console.warn(error),        
-    //   )      
-    // }
-
-
-
-
   } 
+
+  onSelectByCategory(): void {
+    this.choixCatego = true;
+  }
+
+  onReload() {
+    window.location.reload()
+  }  
 }

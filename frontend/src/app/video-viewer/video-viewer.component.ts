@@ -1,10 +1,8 @@
-import { AUTO_STYLE } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-video-viewer',
-  // template: '<youtube-player></youtube-player>',
   templateUrl: './video-viewer.component.html',
   styleUrls: ['./video-viewer.component.scss']
 })
@@ -39,6 +37,5 @@ export class VideoViewerComponent implements OnInit {
       this.videoWidth = 640;
       this.videoHeight = 320;
     }
-
   }
 }

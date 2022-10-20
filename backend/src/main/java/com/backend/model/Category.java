@@ -41,7 +41,6 @@ public class Category {
 
 	public Category() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public long getId() {
@@ -67,13 +66,4 @@ public class Category {
 	public void setVideos(List<Video> videos) {
 		this.videos = videos;
 	}
-	
-	
-    
-    
-	
-	
-	
-
-
 }

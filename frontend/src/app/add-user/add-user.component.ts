@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 import { UserService, User } from "../service/user.service";
 import { Router } from '@angular/router';
 
@@ -33,8 +33,8 @@ export class AddUserComponent implements OnInit {
         this.router.navigate([''])
         },
         error => {
-          this.error = error.message;
-          this.usernameMessage = "veuillez saisir un identifiant comportant au moins 2 caractères ou utilisateur déjà créé"
+          this.error = error.message;          
+          this.usernameMessage = error.error.message; // L'erreur précise si le username est déjà existant ou s'il comporte au moins 2 lettres
         }  );
       }
       else {

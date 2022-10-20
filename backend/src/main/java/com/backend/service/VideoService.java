@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.backend.model.User;
 import com.backend.model.Video;
 import com.backend.repository.VideoRepository;
 
@@ -34,7 +33,6 @@ public class VideoService {
 		Optional<Video> foundVideo = videoRepository.findByTitle(video.getTitle());
 		return foundVideo.isPresent();
 	}
-
     
     public Boolean deleteById(Long id) {
         boolean isVideoInDB;

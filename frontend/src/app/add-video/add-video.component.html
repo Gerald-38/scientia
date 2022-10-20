@@ -1,51 +1,36 @@
-<h2>AJOUT D'UNE VIDEO</h2>
-
-<!-- <form class="example-form">
-    <table class="example-full-width" cellspacing="0">
-        <tr>
-            <td>
-                <input  placeholder="Titre" [(ngModel)]="video.title" name="title" required>
-            </td>
-            <td>
-                <input  placeholder="Desciption" [(ngModel)]="video.description" name="description" required>
-            </td>
-        </tr>
-    </table>
-</form>
-<button (click)="createVideo()" color="primary">Create</button> -->
-
+<h1>Ajout d'une video</h1>
+<p class="message" *ngIf="message"> {{this.message}} </p>
 <form >
     <div class="form-group">
       <label for="title">Titre :</label>
       <input type="text" class="form-control" 
-      id="title" name="title" aria-describedby="emailHelp" placeholder="Titre" [(ngModel)]="video.title">      
+      id="title" name="title" placeholder="Titre" [(ngModel)]="video.title" required >      
     </div>
     <div class="form-group">
         <label for="description">Description</label>
-        <textarea class="form-control" id="description" name="description" rows="3" [(ngModel)]="video.description"></textarea>
+        <textarea class="form-control" id="description" name="description" rows="3" [(ngModel)]="video.description" required ></textarea>
     </div>
     <div class="form-group">
         <label for="image">Image</label>
-        <input type="file" class="form-control" id="image" name="image" placeholder="Image" [(ngModel)]="image">
+        <input type="file" alt="Image de la video" class="form-control" id="image" name="image" placeholder="Image" [(ngModel)]="image" required >
     </div>
     <div class="form-group">
         <label for="duration">Durée :</label>
         <input  type="text" class="form-control" 
-        id="duree" name="duree" aria-describedby="emailHelp" placeholder="Duree" [(ngModel)]="video.duration">      
+        id="duree" name="duree" aria-describedby="emailHelp" placeholder="Duree" [(ngModel)]="video.duration" required >      
     </div>
     <div class="form-group">
         <label for="location">ID Video :</label>
         <input  type="text" class="form-control" 
-        id="location" name="location" placeholder="ID Video" [(ngModel)]="video.location">      
+        id="location" name="location" placeholder="ID Video" [(ngModel)]="video.location" required >      
     </div>
     <label for="category">Choisissez une catégorie:</label>
     <div class="form-group">
-        <select  id="category" name="category" [(ngModel)]="video.categories[0].id">
+        <select  id="category" name="category" [(ngModel)]="video.categories[0].id" required >
             <option value="">--categorie--</option>
             <option *ngFor="let category of categories" value={{category.id}} >{{category.name}}</option>
         </select>
     </div>
     <button  class="btn btn-primary" (click)="saveVideo()">Add</button>
-    <button class="btn btn-danger" routerLink="/">Annuler</button>
-    <p class="message" *ngIf="message"> {{this.message}} </p>
+    <button class="btn btn-danger" routerLink="/">Annuler</button>    
 </form>

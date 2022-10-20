@@ -6,7 +6,6 @@
         <table>
           <thead>
             <tr>
-              <!-- <th class="user-id">ID</th> -->
               <th>Nom</th>
               <th>Role</th>
               <th>Editer</th>
@@ -32,52 +31,49 @@
 
 
 <h2>Videos</h2>
-<div class="container"> <!--provides a wrapper for testing the scroll-->
+<div class="container"> 
     <div class="tWrap">
       <div class="tWrap__head">
         <table>
           <thead>
             <tr>
-              <!-- <th>ID</th> -->
               <th>Titre</th>
               <th>Editer</th>
               <th>Supprimer</th>
             </tr>
           </thead>
         </table>
-      </div> <!--/.tWrap__head-->
+      </div> 
       <div class="tWrap__body">
         <table>
           <tbody>
             <tr *ngFor="let video of videos">
-              <!-- <td>{{video.id}}</td> -->
               <td>{{video.title}}</td>
               <td><button class="btn btn-success" routerLink="/update-video/{{video.id}}">Editer</button></td>
               <td><button class="btn btn-danger" (click)="deleteVideo(video)">Supprimer</button></td>
             </tr>
           </tbody>
         </table>
-      </div> <!--/.tWrap__body-->
-    </div> <!--/.tWrap-->
+      </div> 
+    </div> 
     <button class="btn btn-primary add-btn" routerLink="/add-video">Ajouter une video</button>
-</div> <!--/.container--> 
+</div> 
 
 
 <h2>Catégories</h2>
-<div class="container"> <!--provides a wrapper for testing the scroll-->
+<div class="container"> 
     <div class="tWrap">
       <div class="tWrap__head">
         <table>
           <thead>
             <tr>
-              <!-- <th>ID</th> -->
               <th>Nom</th>
               <th>Editer</th>
               <th>Supprimer</th>
             </tr>
           </thead>
         </table>
-      </div> <!--/.tWrap__head-->
+      </div> 
       <div class="tWrap__body">
         <table>
           <tbody>
@@ -88,8 +84,8 @@
             </tr>
           </tbody>
         </table>        
-      </div> <!--/.tWrap__body-->               
-    </div> <!--/.tWrap-->
+      </div>               
+    </div> 
     <button class="btn btn-primary add-btn" routerLink="/add-category">Ajouter une catégorie</button>       
-</div> <!--/.container--> 
+</div> 
 

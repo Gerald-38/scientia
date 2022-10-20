@@ -11,7 +11,7 @@
     </select>
 </div>
 
-<!-- <h2 *ngIf="choixCatego"> Contenus {{choosenCategory}} </h2>  -->
+
 <div class="container" *ngIf="choixCatego">
   <div  
   *ngFor="let video of videos" 
@@ -24,9 +24,6 @@
       <div class="card__title" *ngIf="video.categories && video.categories[0].name == choosenCategory">
         <p class="card__data title"> {{ video.title }} </p>
       </div>
-      <!-- <div class="card__description" *ngIf="video.categories && video.categories[0].name == choosenCategory">
-        <p class="card__data">Lorem ipsum dolor sit amet.</p>
-      </div> -->
       <div class="card__category" *ngIf="video.categories && video.categories[0].name == choosenCategory">
         <p class="card__data" *ngFor="let categorie of video.categories"><span>{{categorie.name}}</span></p>
       </div>
@@ -35,7 +32,7 @@
 </div>
 
 
-<!-- <h2 *ngIf="!choixCatego"> Contenus </h2>  -->
+
 <div class="container" *ngIf="!choixCatego">   
   <div class="card" *ngFor="let video of videos" routerLink="/video/{{ video.id }}" >
     <div class="card__image">
@@ -45,9 +42,6 @@
       <div class="card__title">
         <p class="card__data title"> {{ video.title }} </p>
       </div>
-      <!-- <div class="card__detail">
-        <p class="card__detail__data">{{video.description}} </p>
-      </div> -->
       <div class="card__category">
         <p class="card__data"><span>{{video.categories[0].name}}</span></p>
       </div> 

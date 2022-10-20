@@ -11,7 +11,6 @@ import { Video, VideoService } from '../service/video.service';
 })
 export class UpdateVideoComponent implements OnInit {
   videoCategories: Category[] | any;
-  // catego: Category | undefined;
   video: Video | undefined;
   videoToEdit: Video | any;
   updateFormVideo!: FormGroup;

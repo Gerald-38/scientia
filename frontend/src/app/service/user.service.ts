@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
 import { Video } from "./video.service";
 
@@ -13,13 +13,12 @@ export class User {
   ) {}
 }
 
-
 @Injectable({
   providedIn: "root"
 })
+
 export class UserService {
   private userUrl: string;
-  // private videos: Videos[]
   video!: Video | any;
 
   constructor(private httpClient: HttpClient) {
@@ -44,26 +43,11 @@ export class UserService {
         videos.forEach((v: Video) => {
           userVideos.push(v.id);
         });
-        // console.log(userVideos);
         sessionStorage.setItem('userVideos', JSON.stringify(userVideos))
         return userVideos;
       }),
     )
   }
-
-        // map(videos => {
-      //   let userVideos: Video[] = [];
-      //   videos.forEach((v: Video, k: any) => {
-      //     v.id = k;
-      //     userVideos.push(v);
-      //     // console.log(userVideos);
-      //     // sessionStorage.setItem('videos', userVideos)
-      //   });
-  
-
-  // getVideosByUserName(username: string): Observable<Video[]> {
-  //   return this.httpClient.get<Video[]>(this.userUrl + 'get/videos/' + 'user?userName=' + `${username}`);
-  // }
 
   public createUser(user: any) {
     return this.httpClient.post<User>(

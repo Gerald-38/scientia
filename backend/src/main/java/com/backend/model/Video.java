@@ -12,9 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
-
-import org.hibernate.validator.constraints.URL;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
@@ -29,25 +26,20 @@ public class Video {
     private long id;
 	
     @Column(name = "title", nullable = false, unique = true)
-    @NotBlank
     private String title;
     
     @Column
-    @NotBlank
     private String description;
     
     @Column
-    @NotBlank
     private String image;
     
     @Column
     private Integer duration; 
     
     @Column
-//    @URL
-	private String location;
-    
-//  @JsonManagedReference 
+	private String location;    
+
 	@ManyToMany
 	@JoinTable(
 	  name = "category_videos",
@@ -66,7 +58,6 @@ public class Video {
     
 	public Video() {
 		super();
-		// TODO Auto-generated constructor stub
 	}	
 	
 	public Video(long id, String title, String description, String image, Integer duration, String location, List<Category> categories, List<User> users) {
@@ -147,5 +138,4 @@ public class Video {
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-
 }

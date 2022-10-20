@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.backend.model.Category;
-import com.backend.model.Video;
 import com.backend.repository.CategoryRepository;
 import com.backend.service.CategoryService;
 
@@ -41,9 +40,8 @@ public class CategoryController {
         List<Category> categories = categoryService.getCategories();
         model.addAttribute("videoDaos", categories);
         return categories;
-    }
-    
-//  @RequestMapping(value = "get/id", method = RequestMethod.GET)
+    }    
+
 	@GetMapping("get/id")
 		public ResponseEntity<Optional<Category>> getVideoById(@RequestParam Long id) {
 		return ResponseEntity.ok(categoryService.getById(id));
@@ -52,7 +50,10 @@ public class CategoryController {
 	@PostMapping("/post")
 	public ResponseEntity<?> createCategory(@RequestBody Category category) throws Exception  {		  
 		if (categoryService.checkExistingCategory(category)) {
-    		throw new Exception("Category already exists!");
+    		throw new Exception("Cette catégorie existe déjà!");
+    	}
+		if (category.getName().length() < 2) {
+    		throw new Exception("Veuillez entrer un nom de catégorie au moins égal à 2 lettres !!!");
     	}
 		else {
 			return ResponseEntity.ok(categoryService.addCategory(category));			
@@ -76,6 +77,4 @@ public class CategoryController {
 	    }
 		return null;
 	 }
-
-
 }

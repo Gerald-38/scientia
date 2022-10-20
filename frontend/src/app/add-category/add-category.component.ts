@@ -18,8 +18,6 @@ export class AddCategoryComponent implements OnInit {
   constructor(private categorySercive: CategoryService, private videoService: VideoService ,private router: Router) { }
 
   ngOnInit(): void {
-
-
   }
 
   createCategory(): void {
@@ -29,9 +27,7 @@ export class AddCategoryComponent implements OnInit {
       },
       error => {
         this.error = error.message;
-        this.message = "Veuillez saisir un nom de catégorie comportant au moins 2 lettres"
+        this.message = error.error.message; // L'erreur précise si le nom de la catégorie est déjà existant ou s'il comporte au moins 2 lettres
       });
   }
-
-
 }

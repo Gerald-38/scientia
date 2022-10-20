@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { map, Observable } from "rxjs";
-import { Category } from "./category.service";
 import { UserService, User } from "./user.service";
 
 export class Video {
@@ -10,7 +9,7 @@ export class Video {
     public title: string,
     public description: string,
     public image: string | undefined,
-    public duration: number,
+    public duration: string,
     public location: string,
     public categories = [{id,name: ''}],
   ) {}
@@ -49,9 +48,9 @@ export class VideoService {
   addVideoToProfile(video:Video) {        
     this.user = sessionStorage.getItem('user');
     let currentUser: User = JSON.parse(this.user); 
-    let currentuserVideos = currentUser.videos;
-    currentuserVideos.push(video);   
-    this.userService.updateUser(currentUser).subscribe(user => user);
+    let currentuserVideos = currentUser.videos; // Recupération de la liste de videos de l'utilisateur
+    currentuserVideos.push(video);   // Ajout de la video à cette liste
+    this.userService.updateUser(currentUser).subscribe(user => user); // Update de l'utilisateur avec la nouvelle liste de videos
   }
 
   updateVideo(video: Video): Observable<void> {
@@ -62,9 +61,9 @@ export class VideoService {
     this.user = sessionStorage.getItem('user');
     let currentUser: User = JSON.parse(this.user); 
     let currentuserVideos: Video[] | any = currentUser.videos; 
-    let  videoIndex = currentuserVideos.findIndex((userVideo: Video) => video.id === userVideo.id)
-    currentuserVideos.splice(videoIndex, 1);
-    this.userService.updateUser(currentUser).subscribe(user => user);
+    let  videoIndex = currentuserVideos.findIndex((userVideo: Video) => video.id === userVideo.id) // Dans la liste de videos de l'utilisatuer, on cherche l'index de la video
+    currentuserVideos.splice(videoIndex, 1); // Suppression de la video dans cette liste
+    this.userService.updateUser(currentUser).subscribe(user => user); // Update de l'utilisateur avec la nouvelle liste de videos
     sessionStorage.removeItem('userVideos');
   }
 

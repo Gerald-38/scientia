@@ -1,13 +1,8 @@
 package com.backend.model;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import java.util.List;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -24,14 +19,11 @@ public class User {
     
     @Column
     @NotBlank(message="Password must not be empty")
-//  @JsonIgnore
     private String password;
     
     @Column(columnDefinition = "varchar(255) default 'user'")
-//  @Column
-    private String role;
-    
-//  @JsonManagedReference 
+    private String role;    
+
 	@ManyToMany
 	@JoinTable(
 	  name = "video_users",
@@ -50,7 +42,6 @@ public class User {
 }
 
 	public User() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public String getUsername() {

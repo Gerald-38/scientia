@@ -1,16 +1,14 @@
-<div class="register">
-    <h1>Ajout d'une catégorie</h1>
-    <div class="register-form">        
-        <h2>Ajout d'une catégorie</h2>
+<h1>Ajout d'une catégorie</h1>
+<div class="register">    
+    <div class="register-form">
         <form >
             <div class="form-group">
               <label for="categoryname">Nom de la catégorie :</label>
-              <input type="text" class="form-control" 
-              id="categoryname" name="categoryname" placeholder="catégorie" [(ngModel)]="category.name" required>      
+              <input type="text" class="form-control" id="categoryname" name="categoryname" placeholder="catégorie" [(ngModel)]="category.name" required>      
             </div>            
             <button  class="btn btn-primary" (click)="createCategory()" >Ajouter</button>
-            <button class="btn btn-danger" routerLink="/">Annuler</button>
-            <p class="message" *ngIf="message"> {{this.message}} </p>
-        </form>
+            <button class="btn btn-danger" routerLink="/">Annuler</button>            
+        </form>        
     </div>
+    <p class="message" *ngIf="message"> {{this.message}} </p>
 </div>   

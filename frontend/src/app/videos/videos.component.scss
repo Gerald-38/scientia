@@ -13,22 +13,6 @@ p {
 
 .container
 {
-  // display: grid;
-  // grid-gap: 25px;
-  // grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  // position: relative;
-  // left: 2%;
-  // right: 2%;
-
-  // margin: 0 auto;
-  // width: 80%;
-  // display: grid;
-  // grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  // grid-gap: 10px;
-  // grid-auto-rows: minmax(100px, auto);
-  // margin: 0 auto;
-  // width: 95%;
-
   padding-top: 2rem;
   margin: 0 auto;
   width: 80%;
@@ -37,8 +21,6 @@ p {
   grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 }
-
-
 
 .choix-categorie {
   margin-bottom: 1rem;
@@ -50,18 +32,10 @@ p {
 }
 
 .card {
-  // border: 1px solid black; 
-  // width: 80%;
-  // height: 200px;
-  // padding: 20px;
-  // border-radius: 10px;
-
-  // height: 300px;
   background-color: #ffff;
   border-radius: 20px;
   padding: 0rem 0rem 2rem 0rem;
   margin-bottom: 1rem;
-  // box-shadow: 3px 5px 10px 1px #d9d9d9;
   position: relative;
   transition-duration: 500ms;
   &__desc {        
@@ -69,12 +43,6 @@ p {
     top: 0rem;
     margin: 0rem 1rem 0rem 1rem;  
     justify-content: space-between;
-    // background-color: #ffff; 
-    // &__detail__data {
-    //   white-space: nowrap;
-    //   text-overflow: ellipsis;
-    //   overflow: hidden;  
-    // }
   }
   &__data span{
     font-style:italic;
@@ -83,7 +51,6 @@ p {
 
 
 img {
-  // width: 50%;
   margin: 0rem 0rem 0rem 0rem;
   padding: 0px;
   width: 100%;
@@ -107,14 +74,6 @@ img {
 @media (min-width: 55em) {
   .container
   {
-    // margin-top: 1rem;
-    // display: grid;
-    // grid-gap: 20px;
-    // grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-    // width: 95%;
-    // position: relative;
-    // left: 3%;
-    // right: 1%;
     margin: 0 auto;
     width: 80%;
     display: grid;
@@ -131,22 +90,15 @@ img {
               background-color: #a1b3cf;
               transform: scale(1.07);                         
               cursor: pointer;
-              // box-shadow: 3px 5px 10px 1px #404040;
     }
     &__desc {        
       position: relative;
       top: 0rem;
       margin: 0rem 1rem 0rem 1rem;  
       justify-content: space-between;
-      // background-color: #ffff; 
     }
     &__data span{
       font-style:italic;
     }    
   }
-  // .title {
-  //   overflow: hidden;
-  //   white-space: nowrap;
-  //   text-overflow: ellipsis;
-  // }
 }

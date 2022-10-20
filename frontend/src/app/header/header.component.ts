@@ -8,7 +8,6 @@ import { UserService, User } from '../service/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  // userRole: any;
   userOnline: any;
   currentUser  = sessionStorage.getItem('user');
   user!: User;  
@@ -17,10 +16,6 @@ export class HeaderComponent implements OnInit {
   constructor(public loginService:AuthenticationService, private userService: UserService){ }
   ngOnInit() {
     this.userOnline = sessionStorage.getItem('username');
-    console.log(this.userOnline);
-
-    this.loginService.saveUserRole();
-
-    
+    this.loginService.saveUserRole();    
   }
 }

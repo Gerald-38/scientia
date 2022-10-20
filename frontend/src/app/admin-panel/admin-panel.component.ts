@@ -59,6 +59,7 @@ export class AdminPanelComponent implements OnInit {
     }
   }
 
+  // On vérifie que la catégorie n'est pas utilisée avant de la supprimer
   deleteCategory(category: Category) {
     this.onDeleteCategory.emit(category);
     let myVideos: Video[] | any= sessionStorage.getItem('videos');
@@ -82,6 +83,7 @@ export class AdminPanelComponent implements OnInit {
     }
   }
 
+  // On vérifie que la video n'est pas utilisée avant de la supprimer
   deleteVideo(video: Video) {
     this.onDeleteVideo.emit(video);
     let myUsers: Video[] | any= sessionStorage.getItem('users');

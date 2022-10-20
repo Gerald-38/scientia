@@ -19,7 +19,8 @@ export class AddCategoryComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  
+  // On appelle la méthode CreateCategory du service  et on lui passe l'objet cateogry modifié avec la directive ngModel
   createCategory(): void {
     this.categorySercive.createCategory(this.category).subscribe(data => {
       alert("La catégorie a bien été créée!");

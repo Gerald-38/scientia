@@ -21,8 +21,7 @@ export class UpdateCategoryComponent implements OnInit {
     if(idParam)
     this.id = idParam;
     this.initUpdateForm(); // initialisation du formulaire
-
-    // mise à jour du formulaire après l'instanciation de ce dernier
+    
     this.categoryService.getCategoryById(this.id).subscribe(category => {
       // on récupère l'instance du formulaire et on met à jour les champs du formulaire
       // avec la méthode patchValue du formGroup
@@ -50,9 +49,7 @@ export class UpdateCategoryComponent implements OnInit {
     category = this.updateFormCategory.value;
     category.id = this.id;
 
-    /**
-     * @todo observer methods next and error 
-     */
+    // On appelle la méthode update du service
     this.categoryService.updateCategory(category).subscribe(
       () => {
         this.router.navigate(['/']);

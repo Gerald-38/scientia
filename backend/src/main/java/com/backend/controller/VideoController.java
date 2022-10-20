@@ -38,7 +38,7 @@ public class VideoController {
     
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     public List<Video> getVideos(Model model) {
-        List<Video> videos = videoService.getVideoDaos();
+        List<Video> videos = videoService.getVideos();
         model.addAttribute("videoDaos", videos);
         return videos;
     }    

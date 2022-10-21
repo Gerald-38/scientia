@@ -34,7 +34,7 @@ export class VideosComponent implements OnInit {
     if (currentUser) {
       this.userService.getVideosByUserName(currentUser).subscribe(
         videos => videos,
-        error => console.warn(error),
+        error => console.log('pas de video dans le profil'),
       )
     }
   } 
